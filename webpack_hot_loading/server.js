@@ -6,9 +6,6 @@ var webpackConfig = require('./webpack.config');
 
 var app = express();
 
-app.set('views', __dirname + '/views'); // general config
-app.set('view engine', 'html');
-
 app.use(express.static('public'));
 
 app.get('/demo',function(res,req){
