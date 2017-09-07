@@ -17,10 +17,14 @@ app.use(bodyParser.urlencoded({extended: true, limit: BODY_PARSER_MAX_BYTES}));
 //使用path模块的normalize可以将window和linux的路径进行统一
 //app.use('/static', express.static(__dirname + '/src'));
 app.use('/static',express.static(path.normalize(__dirname+'/../web/src')));
+app.use('/adminStatic',express.static(path.normalize(__dirname+'/../admin/src')));
 
-//路由
+//路由,默认客户端，admin为后台，需要账号密码登录
 app.all('/',function(req,res){
 	res.sendfile('./web/index.html');
+});
+app.all('/admin',function(req,res){
+	res.sendfile('./admin/index.html');
 });
 app.use('/demo',demoRouter);
 app.all('/demo2',function(req,res){

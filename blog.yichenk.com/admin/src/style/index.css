@@ -1,0 +1,13 @@
+#app{
+    width: 60%;
+    margin: 0 auto;
+    min-width: 400px;
+}
+
+.w-e-toolbar{
+    overflow: hidden;
+    display: block !important;
+}
+#app .w-e-toolbar .w-e-menu{
+    float: left;
+}
