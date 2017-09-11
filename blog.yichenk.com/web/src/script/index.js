@@ -1,4 +1,6 @@
+require('../css/style.css');
 
+var $ = require('jquery');
 
 
 var demo1 = {

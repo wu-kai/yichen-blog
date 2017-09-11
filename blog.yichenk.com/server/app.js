@@ -13,16 +13,33 @@ db.connect();
 app.use(bodyParser.json({limit: BODY_PARSER_MAX_BYTES}));
 app.use(bodyParser.urlencoded({extended: true, limit: BODY_PARSER_MAX_BYTES}));
 
+
+var isDev = process.env.NODE_ENV === 'dev';
+
+//如果是测试环境就使用webpack热加载服务器
+if (isDev) {
+	require('../webpack.dev.server.js')(app);
+
+	app.get('/', function (req, res) {
+		return res.status(302).location('/web').json({msg: 'welcome'});
+	});
+}else{
+	app.all('/',function(req,res){
+		res.sendfile(webIndex);
+	});
+}
+
+
 //提供静态资源的访问 例如：localhost:30000/static/demo.js 会直接返回src下的demo.js文件
 //使用path模块的normalize可以将window和linux的路径进行统一
 //app.use('/static', express.static(__dirname + '/src'));
 app.use('/static',express.static(path.normalize(__dirname+'/../web/src')));
+app.use('/build',express.static(path.normalize(__dirname+'/../build')));
 app.use('/adminStatic',express.static(path.normalize(__dirname+'/../admin/src')));
 
+var webIndex = isDev === true ?'':'./build/index.html';
+
 //路由,默认客户端，admin为后台，需要账号密码登录
-app.all('/',function(req,res){
-	res.sendfile('./web/index.html');
-});
 app.all('/admin',function(req,res){
 	res.sendfile('./admin/index.html');
 });
@@ -32,5 +49,5 @@ app.all('/demo2',function(req,res){
 });
 
 app.listen(3000,function(){
-	console.log('Example app listening on port 3000!');
+	console.error('> Web server listen 3000......');
 });
