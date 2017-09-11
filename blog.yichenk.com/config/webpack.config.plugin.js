@@ -4,6 +4,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 var isDev = process.env.NODE_ENV === 'dev';
 
@@ -27,6 +28,11 @@ var plugin = [
 	//生成html模板文件
 	new HtmlWebpackPlugin({
 		template: 'web/index.html',
+	}),
+	new webpack.optimize.UglifyJsPlugin({ //压缩js
+		compress: {
+			warnings: false
+		}
 	})
 ];
 
@@ -37,6 +43,10 @@ var plugin_dev = [
 
 var plugin_pro=[
 	new CleanWebpackPlugin(pathsToClean,cleanOptions), //构建之前删除构建文件
+	new OptimizeCssAssetsPlugin({		//压缩css
+		cssProcessorOptions: { discardComments: {removeAll: true } },
+		canPrint: true
+	})
 ];
 
 if(isDev){

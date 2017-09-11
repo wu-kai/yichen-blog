@@ -2,7 +2,6 @@ require('../css/style.css');
 
 var $ = require('jquery');
 
-
 var demo1 = {
 	name:'demo1',
 	age:1
@@ -16,6 +15,7 @@ function getAll(){
 		console.log(demoList);
 	});
 }
+
 
 function create(){
 	$.post('/demo/createDemo',demo1).then(function(data){

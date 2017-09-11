@@ -4,7 +4,7 @@ var entry_dev = {
 	'web/index': [
 		'./web/src/script/index.js',
 		'webpack/hot/dev-server',
-		'webpack-dev-server/client?http://localhost:8082'
+		'webpack-dev-server/client?http://localhost:8080'
 	],
 };
 

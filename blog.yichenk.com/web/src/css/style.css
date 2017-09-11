@@ -1,3 +1,6 @@
 body{
     background: #b4adb2;
 }
+ul,ol,li{
+    list-style: none;
+}
