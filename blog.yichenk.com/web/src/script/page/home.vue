@@ -10,7 +10,7 @@
 		components: {
 			'demo1':{
 				template:'<div>demo1</div>'
-            }
+            },
         }
 	}
 </script>
