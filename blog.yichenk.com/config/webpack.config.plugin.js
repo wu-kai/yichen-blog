@@ -28,11 +28,6 @@ var plugin = [
 	//生成html模板文件
 	new HtmlWebpackPlugin({
 		template: 'web/index.html',
-	}),
-	new webpack.optimize.UglifyJsPlugin({ //压缩js
-		compress: {
-			warnings: false
-		}
 	})
 ];
 
@@ -46,6 +41,11 @@ var plugin_pro=[
 	new OptimizeCssAssetsPlugin({		//压缩css
 		cssProcessorOptions: { discardComments: {removeAll: true } },
 		canPrint: true
+	}),
+	new webpack.optimize.UglifyJsPlugin({ //压缩js
+		compress: {
+			warnings: false
+		}
 	})
 ];
 

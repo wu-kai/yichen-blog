@@ -1,6 +1,12 @@
-body{
-    background: #b4adb2;
+body {
+    background: #ffffff;
 }
-ul,ol,li{
+
+ul, ol, li {
     list-style: none;
+}
+
+a, a:link, a:active, a:visited, a:hover {
+    color: #000;
+    text-decoration: none;
 }

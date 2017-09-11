@@ -1,47 +1,12 @@
-require('../css/style.css');
+import Vue from 'vue'
+import VueRouter from 'vue-router';
+import routes from './route/route';
 
-var $ = require('jquery');
-
-var demo1 = {
-	name:'demo1',
-	age:1
-};
-
-var demoList = [];
-
-function getAll(){
-	$.get('/demo/findAll',function(data){
-		demoList = data;
-		console.log(demoList);
-	});
-}
-
-
-function create(){
-	$.post('/demo/createDemo',demo1).then(function(data){
-		console.log(data);
-		getAll()
-	});
-}
-
-function deleteLast() {
-	if (demoList.length === 0) {
-		return false;
-	}
-	var last = demoList[demoList.length - 1];
-	$.get('/demo/deleteDemoById/'+last._id)
-		.then(function (data) {
-			console.log(data);
-			getAll();
-		})
-}
-
-$('#createDemo').on('click',function(){
-	create();
+Vue.use(VueRouter);
+const router = new VueRouter({
+	routes
 });
 
-$('#deleteDemo').on('click',function(){
-	deleteLast();
-});
-
-getAll();
+new Vue({
+	router
+}).$mount('#app');

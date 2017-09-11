@@ -25,6 +25,12 @@ var rules = [
 			loader:"html-loader"
 		}]
 	},
+	{
+		test:/\.vue$/,
+		use:[{
+			loader:"vue-loader"
+		}]
+	}
 ];
 
 module.exports = rules;
