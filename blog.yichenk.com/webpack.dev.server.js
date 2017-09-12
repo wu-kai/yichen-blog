@@ -10,7 +10,7 @@ module.exports = function (app) {
 		contentBase: __dirname,
 		hot: true, //开启热加载
 		quiet: false,
-		noInfo: false, //开启不显示webpack打包过程信息
+		noInfo: true, //开启不显示webpack打包过程信息
 		publicPath: '/',
 		stats: {colors: true},
 		proxy: { //代理api到本地3000端口

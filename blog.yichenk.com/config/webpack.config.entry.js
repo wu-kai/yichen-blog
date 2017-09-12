@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var isDev = process.env.NODE_ENV === 'dev';
 
 var entry_dev = {
@@ -14,6 +15,14 @@ var entry_pro = {
 	],
 };
 
-var entry = isDev === true ? entry_dev : entry_pro;
+var entry = {
+	'web/vendor':['jquery','lodash','vue']
+};
+
+if(isDev){
+	entry = _.assign({},entry_dev,entry);
+}else{
+	entry = _.assign({},entry_pro,entry);
+}
 
 module.exports = entry;

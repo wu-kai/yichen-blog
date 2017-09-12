@@ -15,7 +15,7 @@ var rules = [
 	{
 		test:/^((?!node_modules).)*\.jsx?$/, //不编译node_modules依赖中的js文件
 		use:[{
-			loader:"babel-loader",
+			loader:"babel-loader?cacheDirectory",
 			options:{presets:["es2015","react"]}
 		}]
 	},
