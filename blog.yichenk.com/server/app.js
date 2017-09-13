@@ -62,7 +62,7 @@ var webIndex = isDev === true ?'':'./build/index.html';
 //路由,默认客户端，admin为后台，需要账号密码登录
 app.all('/',function(req,res){
 	if(isDev){
-		res.send('开发环境请访问http://localhost:8080')
+		res.send('开发环境请访问http://localhost:3100')
 	}else{
 		res.sendfile(webIndex);
 	}

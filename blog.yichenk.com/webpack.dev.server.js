@@ -20,8 +20,8 @@ module.exports = function (app) {
 				secure: false,
 			}
 		}
-	}).listen(8080, 'localhost', function () {
-		console.error('> hot server listen 8080......');
+	}).listen(3100, 'localhost', function () {
+		console.error('> hot server listen 3100......');
 		setTimeout(function(){
 			console.log('Webpack is packing, please wait');
 		},100)

@@ -7,7 +7,7 @@ var webpackResolve = require ('./config/webpack.config.resolve.js');
 
 const isDevelop = process.env.NODE_ENV === 'dev';
 const outPath = isDevelop ? __dirname : __dirname+'/build';
-const publicPath = isDevelop ? 'http://localhost:8080/' : '/build/';
+const publicPath = isDevelop ? 'http://localhost:3100/' : '/build/';
 const sourceMap = isDevelop ? 'source-map' : '';
 
 module.exports = {

@@ -24,6 +24,8 @@
         top:0;
         left:0;
         width:100%;
+        height: 30px;
+        line-height: 30px;
     }
     nav li{
         display:inline-block;

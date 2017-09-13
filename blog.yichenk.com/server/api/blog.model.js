@@ -5,6 +5,7 @@ var blogSchema = new Schema({
 	title:  String,		//题目
 	author: String,		//作者
 	body:   String,   	//内容
+	label:	Array,		//标签
 	comments: [{ body: String, date: Date }],		//评论{内容，日期}
 	createTime: { type: Date, default: Date.now },		//创建时间，默认
 	hidden: Boolean,		//是否隐藏

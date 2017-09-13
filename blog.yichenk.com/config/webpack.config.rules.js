@@ -30,6 +30,13 @@ var rules = [
 		use:[{
 			loader:"vue-loader"
 		}]
+	},
+	{
+		test: require.resolve('jQuery'),
+		use: [{
+			loader: 'expose-loader',
+			options: '$'
+		}]
 	}
 ];
 

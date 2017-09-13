@@ -9,30 +9,23 @@
 </head>
 <body>
 <div id="app">
-    <h1 v-text="'请登录'+demo"></h1>
-    <p>算了，不登录了</p>
+    <div>
+        <h1 v-text="'请登录'"></h1>
+        <p>算了，不登录了</p>
 
-    <div class="container">
         <textarea name="con_text" id="" style="width:500px;min-height:620px;display:none"></textarea>
-
         <script id="editor" type="text/plain"></script>
 
-
-        <div class="row">
-            <div class="btn btn-success" @click="submit">submit</div>
-        </div>
+        <div class="btn btn-success submit" @click="submit">submit</div>
     </div>
-
-    <h2>显示</h2>
     <div class="show" id="show"></div>
 </div>
 
 <script src="/libStatic/jquery/jquery.min.js"></script>
 <script src="/libStatic/vue/vue.min.js"></script>
-<script src="/libStatic/lodash/lodash.js"></script>
-<script src="/libStatic/bootstrap/js/bootstrap.min.js"></script>
+<script src="/libStatic/lodash/lodash.min.js"></script>
 <script src="/libStatic/ueditor-utf8-php/ueditor.config.js"></script>
-<script src="/libStatic/ueditor-utf8-php/ueditor.all.js"></script>
+<script src="/libStatic/ueditor-utf8-php/ueditor.all.min.js"></script>
 <script src="/libStatic/ueditor-utf8-php/lang/zh-cn/zh-cn.js"></script>
 <script src="/adminStatic/script/index.js"></script>
 

@@ -2,20 +2,22 @@
 var vm = new Vue({
 	el:'#app',
 	data:{
-		demo:'demo'
+		demo:'demo',
+		label:'',
+		title:'',
+		ue:{},
+		body:'',
+		author:'一尘'
 	},
-	method:{
-		submit:submit
+	methods:{
+		submit:function(){
+			console.log(this.ue.getContent());
+		}
 	},
 	mounted:function() {
+		this.ue = UE.getEditor('editor',{
+			initialFrameHeight:450
+		});
 	}
 });
 
-
-
-
-function submit(){
-	console.log(ue.getContent());
-}
-
-var ue = UE.getEditor('editor');
