@@ -28,8 +28,8 @@ instance.findAll = function(callback){
 };
 
 //admin
-instance.web.create = function(blog,callback){
-	blog.create(blog,callback);
+instance.web.create = function(data,callback){
+	blog.create(data,callback);
 };
 instance.web.findById = function(id,callback){
 	blog.findById({id:id},callback);

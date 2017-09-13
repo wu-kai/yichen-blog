@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var demoRouter = require('./api/demo.router');
+var blogRouter = require('./api/blog.router');
 var db = require('./common/db');
 var ueditor = require('ueditor');         //重点加载
 
@@ -71,6 +72,7 @@ app.all('/admin',function(req,res){
 	res.sendfile('./admin/index.html');
 });
 app.use('/demo',demoRouter);
+app.use('/blog',blogRouter);
 app.all('/demo2',function(req,res){
 	res.send('demo2');
 });
