@@ -4,8 +4,18 @@ var vm = new Vue({
 	data:{
 		demo:'demo'
 	},
-	method:{},
+	method:{
+		submit:submit
+	},
 	mounted:function() {
 	}
 });
 
+
+
+
+function submit(){
+	console.log(ue.getContent());
+}
+
+var ue = UE.getEditor('editor');
