@@ -2,9 +2,9 @@
     <div id="home">
         <demo1></demo1>
         <div v-for="blog in blogList">
-            <h3 v-text="blog.title"></h3>
-            <p v-text="blog.author"></p>
-            <p v-text="blog.label"></p>
+            <h3 v-text="'title:'+blog.title"></h3>
+            <p v-text="'作者:'+blog.author"></p>
+            <p v-text="'标签:'+blog.label"></p>
             <div v-html="blog.body"></div>
         </div>
     </div>

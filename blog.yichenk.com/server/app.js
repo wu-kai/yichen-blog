@@ -53,8 +53,6 @@ if (isDev) {
 
 //提供静态资源的访问 例如：localhost:30000/static/demo.js 会直接返回src下的demo.js文件
 //使用path模块的normalize可以将window和linux的路径进行统一
-//app.use('/static', express.static(__dirname + '/src'));
-app.use('/static',express.static(path.normalize(__dirname+'/../web/src')));
 app.use('/build',express.static(path.normalize(__dirname+'/../build')));
 app.use('/adminStatic',express.static(path.normalize(__dirname+'/../admin/src')));
 app.use('/libStatic',express.static(path.normalize(__dirname+'/../lib')));
