@@ -14,7 +14,7 @@ a, a:link, a:active, a:visited, a:hover {
 }
 
 #app{
-    width:60%;
+    width:50%;
     min-width:400px;
     margin:0 auto;
 }

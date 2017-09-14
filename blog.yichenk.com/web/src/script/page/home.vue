@@ -1,5 +1,6 @@
 <template>
     <div id="home">
+        <h1>Blog List</h1>
         <div v-for="blog in blogList" class="blogList">
             <h2 v-text="blog.title"></h2>
             <p v-text="'作者 : '+blog.author" class="author"></p>
@@ -42,6 +43,7 @@
 
 <style lang="less" scoped>
     #home{
+        h1{text-align: center}
         margin-top: 30px;
         .blogList{
             background: #fff;
