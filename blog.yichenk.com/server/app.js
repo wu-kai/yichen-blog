@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true, limit: BODY_PARSER_MAX_BYTES}));
 
 var isDev = process.env.NODE_ENV === 'dev';
 
-//图片上传配置
+//富文本编辑器图片上传配置
 app.use("/libStatic/ueditor-utf8-php/ue", ueditor(path.join(__dirname, '../images'), function (req, res, next) {
 
 	var date = new Date();
@@ -42,6 +42,8 @@ app.use("/libStatic/ueditor-utf8-php/ue", ueditor(path.join(__dirname, '../image
 		res.redirect('/libStatic/ueditor-utf8-php/php/config.json')  //这里的路径要加载对否则就不能上传图片。如果你下载的是JSP那就对应jsp目录
 	}
 }));
+//图片上传配置
+
 
 
 //如果是测试环境就使用webpack热加载服务器

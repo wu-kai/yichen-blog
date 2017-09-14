@@ -20,7 +20,7 @@ router.post('/createBlog',function(req,res){
 });
 
 router.get('/findAll',function(req,res){
-    blog.web.findAll(function(err,ok){
+    blog.findAll(function(err,ok){
         if(err){
             res.jsonp(err);
         }else{

@@ -18,6 +18,16 @@ module.exports = function (app) {
 				target:'http://localhost:3000/',
 				host: 'localhost:3000',
 				secure: false,
+			},
+			'/blog': {
+				target:'http://localhost:3000/',
+				host: 'localhost:3000',
+				secure: false,
+			},
+			'/ueditor': {
+				target:'http://47.94.201.47:3000/',
+				host: 'localhost:3000',
+				secure: false,
 			}
 		}
 	}).listen(3100, 'localhost', function () {
