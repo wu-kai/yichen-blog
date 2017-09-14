@@ -8,7 +8,7 @@ var vm = new Vue({
 		ue:{},
 		body:'',
 		category:'',
-		author:'一尘'
+		author:''
 	},
 	methods:{
 		submit:function(){

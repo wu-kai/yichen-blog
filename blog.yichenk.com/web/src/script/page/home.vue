@@ -1,11 +1,11 @@
 <template>
     <div id="home">
         <demo1></demo1>
-        <div v-for="blog in blogList">
+        <div v-for="blog in blogList" class="blogList">
             <h3 v-text="'title:'+blog.title"></h3>
             <p v-text="'作者:'+blog.author"></p>
             <p v-text="'标签:'+blog.label"></p>
-            <div v-html="blog.body"></div>
+            <div class="content" v-html="blog.body"></div>
         </div>
     </div>
 </template>
