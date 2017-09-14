@@ -22,3 +22,6 @@ a, a:link, a:active, a:visited, a:hover {
     display: inline-block;
     max-width: 50%;
 }
+#home .blogList .content p{
+    margin: 0;
+}
