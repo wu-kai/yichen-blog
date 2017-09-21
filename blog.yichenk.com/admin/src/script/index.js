@@ -16,10 +16,10 @@ var vm = new Vue({
 			var self = this;
 			var blog = {
 				title:self.title,
-				label:self.label,
+				label:self.label.split(' '),
 				category:self.category,
 				body:self.body,
-				author:self.author
+				author:self.author || '一尘'
 			};
 			console.log(blog);
 			$.ajax({

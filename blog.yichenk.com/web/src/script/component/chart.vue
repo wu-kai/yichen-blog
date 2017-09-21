@@ -33,7 +33,7 @@
 				}],
 				credits:{ enabled:false },
 				exporting: { enabled:false }
-			})
+			});
 			var chart2 = new Highcharts.Chart('chart2', {
 				chart: {
 					type: 'area'                         //指定图表的类型，默认是折线图（line）

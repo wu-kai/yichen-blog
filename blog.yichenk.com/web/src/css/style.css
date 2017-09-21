@@ -12,6 +12,12 @@ a, a:link, a:active, a:visited, a:hover {
     color: #000;
     text-decoration: none;
 }
+.clearF:after{
+    content:'';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
 
 #app{
     width:50%;
