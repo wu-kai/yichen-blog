@@ -32,8 +32,22 @@ var rules = [
 		}]
 	},
 	{
+		test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+		loader: 'url-loader?limit=1000000'
+	},
+	{
+		test: /\.(png|jpg)$/,
+		loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
+	},
+	{
 		test: require.resolve('jQuery'),
 		use: [{
+			loader: 'expose-loader',
+			options: 'jquery'
+		},{
+			loader: 'expose-loader',
+			options: 'jQuery'
+		},{
 			loader: 'expose-loader',
 			options: '$'
 		}]

@@ -1,6 +1,5 @@
 <template>
     <div id="home">
-        <h1>Blog List</h1>
         <div v-for="blog in blogList" class="blogList">
             <h2 v-text="blog.title"></h2>
             <div class="info">
@@ -64,12 +63,11 @@
         h1 {
             text-align: center
         }
-        margin-top: 30px;
         .blogList {
             background: #fff;
             padding: 10px;
-            margin-top: 25px;
             box-shadow: 0 0 15px 1px #d1d1d1;
+            margin-top: 60px;
             h2 {
                 text-align: center;
                 margin: 0;

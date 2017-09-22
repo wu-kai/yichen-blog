@@ -40,7 +40,6 @@
         box-shadow: 0 0 20px 1px #c1c1c1;
         box-sizing: border-box;
         width: 100%;
-        margin-top: 25px;
         padding: 10px;
     }
 </style>

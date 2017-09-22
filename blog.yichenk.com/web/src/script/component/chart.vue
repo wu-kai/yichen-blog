@@ -1,12 +1,15 @@
 <template>
-    <div class="box">
+    <div>
         <div id="chart1"></div>
         <div id="chart2"></div>
     </div>
 </template>
 <script>
+	import MainNav from "./main-nav.vue";
+
 	var Highcharts = require('highcharts');
 	export default {
+		components: {MainNav},
 		name: '',
 		mounted: function () {
 			var chart1 = new Highcharts.Chart('chart1', {

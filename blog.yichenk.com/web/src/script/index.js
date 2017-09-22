@@ -4,6 +4,7 @@ import routes from './route/route';
 
 require('jQuery');
 require('../css/style.css');
+require('../../../lib/bootstrap/css/bootstrap.css');
 
 Vue.use(VueRouter);
 import mainNav from './component/main-nav.vue';
@@ -17,4 +18,25 @@ const router = new VueRouter({
 
 new Vue({
 	router,
+	mounted: function () {
+		$(window).bind('mousewheel', function (event) {
+			var $nav       = $('nav'),
+				navpadding = parseInt($nav.css('padding').split(' ')[0]),
+				navHeight  = navpadding * 2 + $nav.height();
+			console.log(navHeight);
+			console.log(navpadding);
+			if (event.originalEvent.wheelDelta >= 0) {
+				console.log('Scroll up');
+				$nav.animate({
+					top: '0'
+				}, 100);
+			}
+			else {
+				console.log('Scroll down');
+				$nav.animate({
+					top: '-' + navHeight + 'px'
+				}, 100);
+			}
+		});
+	}
 }).$mount('#app');
