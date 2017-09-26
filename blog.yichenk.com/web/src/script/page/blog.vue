@@ -34,8 +34,6 @@
 				axios.get('/blog/findAll').then(function (data) {
 					if (data.status === 200) {
 						self.blogList = self.blogList.concat(data.data);
-						console.log(data);
-						console.log(self.blogList);
 					}
 				})
 			},
@@ -60,6 +58,7 @@
 
 <style lang="less" scoped>
     #home {
+        margin-top: 250px;
         h1 {
             text-align: center
         }
@@ -67,7 +66,7 @@
             background: #fff;
             padding: 10px;
             box-shadow: 0 0 15px 1px #d1d1d1;
-            margin-top: 60px;
+            margin-top: 20px;
             h2 {
                 text-align: center;
                 margin: 0;

@@ -32,7 +32,6 @@ new Vue({
 				}, 100);
 			}
 			else {
-				console.log('Scroll down');
 				$nav.animate({
 					top: '-' + navHeight + 'px'
 				}, 100);

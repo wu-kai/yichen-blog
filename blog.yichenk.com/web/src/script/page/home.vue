@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>YichenK</h1>
+        <h1>Welcome to Yichenk.com</h1>
     </div>
 </template>
 
@@ -14,6 +14,9 @@
 
 <style lang="less" scoped>
     h1{
-
+        text-align: center;
+        margin-top: 200px;
+        font-weight: 700;
+        color: #80979e;
     }
 </style>

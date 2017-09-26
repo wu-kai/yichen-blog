@@ -26,10 +26,11 @@ body{
     clear: both;
 }
 
+
 #app{
     width:50%;
     min-width:400px;
-    margin:170px auto 50px;
+    margin:70px auto 50px;
 }
 #home .blogList .content img{
     display: inline-block;
