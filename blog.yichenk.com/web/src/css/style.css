@@ -16,7 +16,7 @@ a, a:link, a:active, a:visited, a:hover {
 body{
     width: 100%;
     background-color: #030504 !important;
-    background: url('../images/bg1.jpg') top no-repeat;
+    background: url('../images/bg2.jpg') top no-repeat;
     background-size:100% auto;
 }
 .clearF:after{
@@ -29,8 +29,7 @@ body{
 #app{
     width:50%;
     min-width:400px;
-    margin:350px auto 50px;
-    background: #fff;
+    margin:170px auto 50px;
 }
 #home .blogList .content img{
     display: inline-block;

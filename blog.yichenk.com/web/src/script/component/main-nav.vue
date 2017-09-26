@@ -13,15 +13,15 @@
                 <li :class="active === 'blog'?'route-active':''" class="navbar-left">
                     <router-link to="blog">Blog</router-link>
                 </li>
-                <li :class="active === 'chart'?'route-active':''" class="navbar-left">
-                    <router-link to="chart">Hchart</router-link>
-                </li>
-                <li :class="active === 'bbChart'?'route-active':''" class="navbar-left">
-                    <router-link to="bbChart">bbChart</router-link>
-                </li>
-                <li :class="active === 'about'?'route-active':''" class="navbar-left">
-                    <router-link to="about">About</router-link>
-                </li>
+                <!--<li :class="active === 'chart'?'route-active':''" class="navbar-left">-->
+                    <!--<router-link to="chart">Hchart</router-link>-->
+                <!--</li>-->
+                <!--<li :class="active === 'bbChart'?'route-active':''" class="navbar-left">-->
+                    <!--<router-link to="bbChart">bbChart</router-link>-->
+                <!--</li>-->
+                <!--<li :class="active === 'about'?'route-active':''" class="navbar-left">-->
+                    <!--<router-link to="about">About</router-link>-->
+                <!--</li>-->
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
@@ -53,7 +53,7 @@
         padding: 10px 150px;
     }
     nav#blog-nav{
-        background: #303030 url('../../images/bg2.jpg') 100px -300px no-repeat !important;
+        background: #000000 url('../../images/bg2.jpg') 5px -300px no-repeat !important;
         background-size:110% 10%;
         border-bottom: none;
         z-index: 1;
