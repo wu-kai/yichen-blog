@@ -65,5 +65,7 @@
 </script>
 
 <style lang="less" scoped>
-
+.box{
+    margin-top: 130px;
+}
 </style>

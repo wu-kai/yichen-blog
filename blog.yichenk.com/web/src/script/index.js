@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import routes from './route/route';
 
 require('jQuery');
-require('../css/style.css');
+import '../css/style.css';
 require('../../../lib/bootstrap/css/bootstrap.css');
 
 Vue.use(VueRouter);
@@ -24,7 +24,6 @@ new Vue({
 				navpadding = parseInt($nav.css('padding').split(' ')[0]),
 				navHeight  = navpadding * 2 + $nav.height();
 			if (event.originalEvent.wheelDelta >= 0) {
-				console.log('Scroll up');
 				$nav.animate({
 					top: '0'
 				}, 100);
