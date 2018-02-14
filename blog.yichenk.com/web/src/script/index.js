@@ -23,8 +23,6 @@ new Vue({
 			var $nav       = $('nav'),
 				navpadding = parseInt($nav.css('padding').split(' ')[0]),
 				navHeight  = navpadding * 2 + $nav.height();
-			console.log(navHeight);
-			console.log(navpadding);
 			if (event.originalEvent.wheelDelta >= 0) {
 				console.log('Scroll up');
 				$nav.animate({
