@@ -1,11 +1,11 @@
 <template>
     <header>
         <nav id="blog-nav" class="navbar navbar-default navbar-fixed-top">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="">
-                </a>
-            </div>
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="#">-->
+                    <!--<img alt="Brand" src="">-->
+                <!--</a>-->
+            <!--</div>-->
             <ul class="nav navbar-nav">
                 <li  :class="active === 'home'?'route-active':''" class="navbar-left">
                     <router-link to="home">Home</router-link>

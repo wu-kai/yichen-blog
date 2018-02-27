@@ -28,7 +28,6 @@ body{
 
 
 #app{
-    width:50%;
     min-width:400px;
     margin:70px auto 50px;
 }
@@ -38,4 +37,18 @@ body{
 }
 #home .blogList .content p{
     margin: 0;
+}
+.w-e-toolbar{
+    overflow: hidden;
+    display: block !important;
+}
+#app .w-e-toolbar .w-e-menu{
+    float: left;
+}
+
+#editor>div{
+    width:100% !important;
+}
+#editor #edui1_iframeholder{
+    width:100% !important;
 }

@@ -33,6 +33,7 @@
     "npm": "^5.4.0",
     "open-browser-webpack-plugin": "0.0.5",
     "opti": "^0.1.2",
+    "particles.js": "^2.0.0",
     "proxy-middleware": "^0.15.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

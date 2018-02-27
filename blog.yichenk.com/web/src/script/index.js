@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import routes from './route/route';
 
 require('jQuery');
+require('lodash');
 import '../css/style.css';
 require('../../../lib/bootstrap/css/bootstrap.css');
 
