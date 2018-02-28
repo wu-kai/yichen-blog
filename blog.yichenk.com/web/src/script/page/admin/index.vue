@@ -5,7 +5,7 @@
         <div id="admin">
             <div class="list">
                 <ol>
-                    <li>123</li>
+
                 </ol>
             </div>
             <div class="content">
@@ -95,7 +95,7 @@
 			this.ue = UE.getEditor('editor', {
 				initialFrameHeight: 250
 			});
-			particlesJS.load('particles-js', 'http://localhost:3000/libStatic/particles.json', function() {
+			particlesJS.load('particles-js', '/libStatic/particles.json', function() {
 				console.log('callback - particles.js config loaded');
 			});
         },

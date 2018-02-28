@@ -9,10 +9,8 @@ require('../../../lib/bootstrap/css/bootstrap.css');
 
 Vue.use(VueRouter);
 import mainNav from './component/main-nav.vue';
-import chart from './component/chart.vue';
 
 Vue.component('main-nav', Vue.extend(mainNav));
-Vue.component('chart', Vue.extend(chart));
 const router = new VueRouter({
 	routes
 });
@@ -22,7 +20,7 @@ new Vue({
 	mounted: function () {
 		$(window).bind('mousewheel', function (event) {
 			var $nav       = $('nav');
-			if($nav[0]){
+			if(!$nav[0]){
 				return;
 			}
 			var	navpadding = parseInt($nav.css('padding').split(' ')[0]);
