@@ -9,7 +9,7 @@ router.all('/',function(req,res){
 });
 
 router.post('/createBlog',function(req,res){
-    var data = req.body || demoTest;
+    var data = req.body;
     blog.web.create(data,function(err,ok){
         if(err){
             res.jsonp(err);
@@ -38,6 +38,28 @@ router.get('/deleteDemoById/:id',function(req,res){
             res.jsonp(ok);
         }
     });
+});
+
+router.post('/deleteBlogById',function(req,res){
+	var id=req.body.id;
+	console.log(id);
+	blog.web.deleteById(id,function(err,ok){
+		if(err){
+			res.jsonp(err);
+		}else{
+			res.jsonp(ok);
+		}
+	});
+});
+router.post('/editBlog',function(req,res){
+	var data = req.body;
+	blog.web.editBlog(data,function(err,ok){
+		if(err){
+			res.jsonp(err);
+		}else{
+			res.jsonp(ok);
+		}
+	});
 });
 
 module.exports = router;

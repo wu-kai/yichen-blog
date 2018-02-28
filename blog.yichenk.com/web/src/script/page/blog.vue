@@ -17,6 +17,7 @@
 
 <script>
 	import axios from 'axios'
+	import _ from 'lodash'
 
 	export default {
 		name: 'home',
@@ -36,7 +37,7 @@
 				var self = this;
 				axios.get('/blog/findAll').then(function (data) {
 					if (data.status === 200) {
-						self.blogList = self.blogList.concat(data.data);
+						self.blogList = _.orderBy(data.data,['createTime'],['desc']);
 					}
 				})
 			},

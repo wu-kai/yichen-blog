@@ -5,7 +5,7 @@
         <div id="admin">
             <div class="list">
                 <ol>
-
+                    <li v-for="blog in blogList" :key="blog._id" v-text="blog.title" @click="selectBlog(blog)"></li>
                 </ol>
             </div>
             <div class="content">
@@ -37,8 +37,10 @@
                     <textarea name="con_text" id="" style="width:500px;min-height:620px;display:none"></textarea>
                     <script id="editor" type="text/plain"></script>
 
-                    <div class="btn btn-success submit" @click="submit">submit</div>
-                    <div class="btn btn-danger cancel" @click="submit">cancel</div>
+                    <div class="btn btn-success submit" v-if="status==='add'" @click="submit">submit</div>
+                    <div class="btn btn-success submit" v-if="status==='edit'" @click="edit">edit</div>
+                    <div class="btn btn-danger submit" v-if="status==='edit'" @click="remove">remove</div>
+                    <div class="btn btn-primary cancel" @click="cancel">cancel</div>
                 </div>
             </div>
         </div>
@@ -46,7 +48,9 @@
 </template>
 
 <script>
-    import _particlesJS from 'particles.js'
+	import _particlesJS from 'particles.js';
+	import axios from 'axios'
+	import _ from 'lodash'
 
 	export default {
 		name: 'admin',
@@ -58,10 +62,22 @@
 				ue: {},
 				body: '',
 				category: '',
-				author: ''
+				author: '',
+				blogList: [],
+				status: 'add'
 			}
 		},
 		methods: {
+			initData:function(){
+				this.getList();
+				this.label = '';
+				this.title = '';
+				this.body = '';
+				this.category = '';
+				this.author = '';
+				this.ue.setContent('');
+				this.status = 'add';
+            },
 			submit: function () {
 				this.body = this.ue.getContent();
 				var self = this;
@@ -72,7 +88,6 @@
 					body: self.body,
 					author: self.author || '一尘'
 				};
-				console.log(blog);
 				$.ajax({
 					url: '/blog/createBlog',
 					method: 'POST',
@@ -80,30 +95,80 @@
 				}).then(function (data, err) {
 					if (data && data.status === 'success') {
 						alert('创建成功');
-						self.title = '';
-						self.label = '';
-						self.category = '';
-						self.ue.setContent('');
+						self.initData();
 					}
 				})
-			}
+			},
+			edit: function () {
+				this.body = this.ue.getContent();
+				var self = this;
+				var blog = {
+					id: self.id,
+					title: self.title,
+					label: self.label.split(' '),
+					category: self.category,
+					body: self.body,
+					author: self.author || '一尘'
+				};
+				axios.post('/blog/editBlog', blog)
+					.then(function (data, err) {
+						console.log(data);
+						if (data && data.status === 200) {
+							alert('修改成功');
+							self.initData();
+						}
+					})
+			},
+			cancel: function () {
+				this.initData();
+			},
+			getList: function () {
+				var self = this;
+				axios.get('/blog/findAll').then(function (data) {
+					if (data.status === 200) {
+						self.blogList = _.orderBy(data.data,['createTime'],['desc']);
+					}
+				});
+			},
+			selectBlog: function (b) {
+				this.id = b._id;
+				this.title = b.title;
+				this.label = b.label.join(',');
+				this.body = b.body;
+				this.category = b.category;
+				this.author = b.author;
+				this.ue.setContent(b.body);
+				this.status = 'edit';
+			},
+			remove:function(){
+				var self = this;
+				if(confirm('确认删除'+this.title+'?')){
+					var id = this.id;
+					axios.post('/blog/deleteBlogById',{id:id}).then(function (data) {
+						console.log(data);
+						if (data.status === 200) {
+							self.initData();
+                        }
+					});
+                }
+            }
 		},
-        beforeCreate:function(){
+		beforeCreate: function () {
 			$('body').addClass('admin')
-        },
-		beforeMount:function(){
+		},
+		beforeMount: function () {
+			this.getList();
 			this.ue = UE.getEditor('editor', {
 				initialFrameHeight: 250
 			});
-			particlesJS.load('particles-js', '/libStatic/particles.json', function() {
+			particlesJS.load('particles-js', '/libStatic/particles.json', function () {
 				console.log('callback - particles.js config loaded');
 			});
-        },
-        beforeDestroy:function(){
+		},
+		beforeDestroy: function () {
 			$('body').removeClass('admin')
-        },
+		},
 		mounted: function () {
-
 
 		}
 
@@ -111,6 +176,7 @@
 </script>
 
 <style lang="less" scoped>
+
     .admin-box {
         width: 100%;
         height: 100%;
@@ -136,8 +202,7 @@
             position: absolute;
             left: 50%;
             margin-left: -600px;
-            top:60px;
-
+            top: 80px;
         }
         .cancel {
             border: none;
@@ -147,6 +212,30 @@
         .submit {
             margin-top: 20px;
         }
+        > .list {
+            position: absolute;
+            left: 0;
+            top: 120px;
+            width: 140px;
+            box-sizing: border-box;
+            background: rgba(98, 98, 98, 0.44);
+            border-right: 5px;
+            padding: 10px 20px;
+            box-shadow: 0 0 10px 1px #616161;
+            min-height: 200px;
+            ol{
+                padding-left: 0;
+                li{
+                    cursor: pointer;
+                    margin-top: 10px;
+                    color: #b4674b;
+                }
+                li:hover{
+                    color: #df825a;
+                }
+            }
+
+        }
     }
 </style>
 
@@ -154,5 +243,11 @@
     html > body.admin {
         background: url('../../../images/p_04.jpg') no-repeat center;
         background-size: cover;
+    }
+    @media (max-width: 1500px) {
+        #admin .content{
+            width: 800px;
+            margin-left: -400px;
+        }
     }
 </style>
