@@ -1,13 +1,16 @@
 <template>
-    <div id="home">
-        <div v-for="blog in blogList" class="blogList">
-            <h2 v-text="blog.title"></h2>
-            <div class="info">
-                <p v-text="'作者 : '+blog.author" class="author"></p>
-                <p v-text="'标签 : '+blog.label" class="label info-common"></p>
-                <p class="time info-common">时间 : {{blog.createTime | time}}</p>
+    <div>
+        <main-nav></main-nav>
+        <div id="home">
+            <div v-for="blog in blogList" class="blogList">
+                <h2 v-text="blog.title"></h2>
+                <div class="info">
+                    <p v-text="'作者 : '+blog.author" class="author"></p>
+                    <p v-text="'标签 : '+blog.label" class="label info-common"></p>
+                    <p class="time info-common">时间 : {{blog.createTime | time}}</p>
+                </div>
+                <div class="content" v-html="blog.body"></div>
             </div>
-            <div class="content" v-html="blog.body"></div>
         </div>
     </div>
 </template>
@@ -58,7 +61,8 @@
 
 <style lang="less" scoped>
     #home {
-        margin-top: 250px;
+        margin: 200px auto 0;
+        width: 60%;
         h1 {
             text-align: center
         }

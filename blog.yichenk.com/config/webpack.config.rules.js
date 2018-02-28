@@ -51,6 +51,12 @@ var rules = [
 			loader: 'expose-loader',
 			options: '$'
 		}]
+	},
+	{
+		test: /\.json$/,
+		use:[{
+			loader:"json-loader"
+		}]
 	}
 ];
 

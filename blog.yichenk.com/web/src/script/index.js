@@ -21,9 +21,12 @@ new Vue({
 	router,
 	mounted: function () {
 		$(window).bind('mousewheel', function (event) {
-			var $nav       = $('nav'),
-				navpadding = parseInt($nav.css('padding').split(' ')[0]),
-				navHeight  = navpadding * 2 + $nav.height();
+			var $nav       = $('nav');
+			if($nav[0]){
+				return;
+			}
+			var	navpadding = parseInt($nav.css('padding').split(' ')[0]);
+			var	navHeight  = navpadding * 2 + $nav.height();
 			if (event.originalEvent.wheelDelta >= 0) {
 				$nav.animate({
 					top: '0'

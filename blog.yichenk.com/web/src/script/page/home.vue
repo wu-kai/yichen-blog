@@ -1,6 +1,9 @@
 <template>
     <div>
-        <h1>Welcome to Yichenk.com</h1>
+        <main-nav></main-nav>
+        <div>
+            <h1>Welcome to Yichenk.com</h1>
+        </div>
     </div>
 </template>
 
