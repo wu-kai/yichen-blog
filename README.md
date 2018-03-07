@@ -12,5 +12,10 @@ yichenk.blog.admin 作为使用angula5和ionic3构建的博客后台
 希望在18年可以有一个雏形
 
 
+> react中文文档 https://doc.react-china.org/docs/hello-world.html
+
+> angular中文文档 https://angular.cn/docs
+
+
 
 
