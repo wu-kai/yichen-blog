@@ -5,7 +5,13 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state:{
-    demo:'vuex demo'
+    demo:'vuex demo',
+    editingContent:'<h1>demo</h1>'
+  },
+  mutations:{
+    saveContent(state,content){
+      state.editingContent = content;
+    }
   }
 });
 
