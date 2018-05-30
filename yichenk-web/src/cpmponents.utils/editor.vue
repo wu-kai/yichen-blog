@@ -1,5 +1,5 @@
 <template>
-  <div :id="id"></div>
+  <div></div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
   require('../../static/lib/ueditor-utf8-php/ueditor.all');
   require('../../static/lib/ueditor-utf8-php/ueditor.parse.min');
   require('../../static/lib/ueditor-utf8-php/lang/zh-cn/zh-cn');
-
+  import { mapState } from 'vuex';
 	export default {
 		name: 'editor',
     data:function(){
@@ -17,24 +17,35 @@
 		    content:''
       }
     },
+    computed:{
+      ...mapState({
+        editingContent:state=>state.test.editingContent
+      })
+    },
     props:['id'],
     mounted(){
+      console.log(123);
       const self = this;
-      const editor = UE.getEditor(self.id, {
+      $(this.$el).append($('<div id="'+self.id+'"></div>'));
+      self.editor = UE.getEditor(self.id, {
         initialFrameWidth:'100%',
         initialFrameHeight:'500',
         UEDITOR_HOME_URL:'/static/lib/ueditor-utf8-php/'
       });
-      console.log(self.$store.state.editingContent);
-      if(self.$store.state.editingContent){
-        editor.addListener("ready", function () {
-          editor.setContent(self.$store.state.editingContent);
+      if(self.editingContent){
+        self.editor.addListener("ready", function () {
+          self.editor.setContent(self.editingContent);
         });
       }
-      editor.addListener('contentChange',function(){
-        self.content = editor.getContent();
+      self.editor.addListener('contentChange',function(){
+        self.content = self.editor.getContent();
         self.$store.commit('saveContent',self.content);
       });
+    },
+    beforeDestroy(){
+      console.log('dddd');
+//      this.editor.removeAllListeners();
+//      this.editor.clearRange();
     }
 	}
 </script>

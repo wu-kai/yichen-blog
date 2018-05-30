@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h1>更好的一尘</h1>
-    {{demo}}
+    <h1>{{title}}</h1>
     <editor id="ueditor-demo2"></editor>
     <button @click="save">save</button>
-    <div v-html="$store.state.editingContent"></div>
   </div>
 </template>
 <script>
@@ -16,16 +14,18 @@
         content:'123'
       }
     },
-    computed:mapState({
-      demo:state=>state.demo
-    }),
+    computed: {
+      ...mapState({
+        editingContent:state=>state.test.editingContent,
+        title:state=>state.test.title
+      })
+    },
     components:{
       editor:editor
     },
     methods:{
       save(){
         console.log(this.content);
-
       }
     }
   };
