@@ -14,16 +14,10 @@ require('../../static/lib/ueditor-utf8-php/lang/zh-cn/zh-cn');
 
 Vue.directive('vueUEditor',{
   bind:function(el,binding){
-    console.log(el);
-    console.log($);
-    // $(el).append($('<script id="ueditor-demo"></script>'));
-    setTimeout(function(){
-
-      var editor =  UE.getEditor('ueditor-demo', {
-        initialFrameWidth:'100%',
-        initialFrameHeigh:'200px;',
-        UMEDITOR_HOME_URL:'/static/lib/ueditor-utf8-php/'
-      });
-    },50)
+    var editor =  UE.getEditor('ueditor-demo', {
+      initialFrameWidth:'100%',
+      initialFrameHeight:'500',
+      UEDITOR_HOME_URL:'/static/lib/ueditor-utf8-php/',
+    });
   }
 });
