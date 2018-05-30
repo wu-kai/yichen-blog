@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '@lib': resolve('lib')
     }
   },
   module: {
@@ -64,7 +65,20 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jquery'
+        },{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        },{
+          loader: 'expose-loader',
+          options: '$'
+        }]
+      },
     ]
   },
   node: {
