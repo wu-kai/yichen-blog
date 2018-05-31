@@ -12,6 +12,7 @@
     "express": "^4.16.3"
   },
   "dependencies": {
-    "mongoose": "~4.4.20"
+    "mongoose": "~4.4.20",
+    "ueditor": "^1.2.3"
   }
 }
