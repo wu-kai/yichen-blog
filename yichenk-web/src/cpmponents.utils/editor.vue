@@ -14,7 +14,6 @@
 		name: 'editor',
     data:function(){
 		  return {
-		    content:''
       }
     },
     computed:{
@@ -22,31 +21,25 @@
         editingContent:state=>state.test.editingContent
       })
     },
-    props:['id'],
+    props:['id','height','width','content'],
     mounted(){
-      console.log(123);
       const self = this;
       $(this.$el).append($('<div id="'+self.id+'"></div>'));
       self.editor = UE.getEditor(self.id, {
-        initialFrameWidth:'50%',
-        initialFrameHeight:'500',
+        initialFrameWidth:self.width||'100%',
+        initialFrameHeight:self.height||'500',
         UEDITOR_HOME_URL:'/static/lib/ueditor-utf8-php/'
       });
-      if(self.editingContent){
+      if(self.content){
         self.editor.addListener("ready", function () {
-          self.editor.setContent(self.editingContent);
+          self.editor.setContent(self.content||'');
         });
       }
       self.editor.addListener('contentChange',function(){
-        self.content = self.editor.getContent();
-        self.$store.commit('saveContent',self.content);
+        self.$store.commit('saveTempBlogContent',self.editor.getContent());
       });
     },
-    beforeDestroy(){
-      console.log('dddd');
-//      this.editor.removeAllListeners();
-//      this.editor.clearRange();
-    }
+    beforeDestroy(){}
 	}
 </script>
 

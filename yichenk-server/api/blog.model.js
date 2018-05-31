@@ -8,6 +8,7 @@ var blogSchema = new Schema({
 	label: Array,		//标签
 	image: String,		//文章顶部图片
 	img: String,		//列表缩略图
+	info:String,		//简介
 	comments: [{body: String, date: Date}],		//评论{内容，日期}
 	createTime: {type: Date, default: Date.now},		//创建时间，默认
 	hidden: Boolean,		//是否隐藏
@@ -47,8 +48,8 @@ instance.web.editBlog = function (data, callback) {
 			blogDoc.title = data.title;
 			blogDoc.label = data.label;
 			blogDoc.body = data.body;
-			blogDoc.category = data.category;
 			blogDoc.author = data.author;
+			blogDoc.category = data.category;
 			blogDoc.save(function (err, blogDoc) {
 				if (err) {
 					callback(err)

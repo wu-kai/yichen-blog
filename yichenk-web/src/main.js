@@ -5,10 +5,18 @@ import $ from 'jquery'
 import App from './App'
 import router from './router'
 import store from './store'
+import axios from 'axios'
+import VueBlu from 'vue-blu'
+import 'vue-blu/dist/css/vue-blu.min.css'
 import directive from './directives'
+
 require('./css/font-awesome.css');
 require('./css/common.css');
+
+Vue.use(VueBlu);
+
 Vue.config.productionTip = false;
+Vue.prototype.axios = axios;
 
 /* eslint-disable no-new */
 new Vue({

@@ -14,6 +14,12 @@ body {
 ul,li{
   list-style: none;
 }
+button{
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
 
 .blue50{color: #e3f2fd}
 .blue100{color: #bbdefb}
@@ -48,5 +54,19 @@ ul,li{
   filter: blur(5px);
   -ms-filter: blur(5px);
   -webkit-filter: blur(5px);
-  transition: all .5s ease;
+  transition: all .2s ease;
+}
+.common_button{
+  padding: 0 70px;
+  line-height: 36px;
+  height: 36px;
+  border-radius: 5px;
+  background: #5c6bc0;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+.common_button:hover{
+  background: #3949ab;
 }

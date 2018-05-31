@@ -26,5 +26,6 @@
     top: 10px;
     z-index: 999;
     font-size: 30px;
+    color: #949494;
   }
 </style>

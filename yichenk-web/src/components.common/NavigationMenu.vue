@@ -43,7 +43,7 @@
   }
   li:hover{
     cursor: pointer;
-    color: #42a5f5;
+    color: #1e88e5;
   }
   ul{
     width: 500px;
@@ -53,6 +53,7 @@
   li{
     line-height: 80px;
     text-align: center;
+    color: #42a5f5;
   }
   .close{
     position: absolute;

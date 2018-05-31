@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img src="http://p9kmzrcfb.bkt.clouddn.com/080339.14528086.jpg" alt="">
     <h1>{{title}}</h1>
   </div>
 </template>
@@ -17,12 +18,10 @@
   export default Home;
 </script>
 <style scoped>
-  .home {
-    padding-top: 150px;
-  }
 
   h1 {
     font-size: 100px;
+    margin-top: 100px;
   }
 
 </style>

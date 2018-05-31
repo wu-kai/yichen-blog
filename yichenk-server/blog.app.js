@@ -58,12 +58,13 @@ app.all('/',function(req,res){
 	}
 });
 
+app.use('/api/demo',demoRouter);
+app.use('/api/blog',blogRouter);
 app.use('/api',function(req,res){
 	console.log(123123);
 	res.send('开发环境请启动yichenk-web');
 });
-app.use('/api/demo',demoRouter);
-app.use('/api/blog',blogRouter);
+
 
 app.listen(3000,function(){
 	console.error('> Web server listen 3000......');
