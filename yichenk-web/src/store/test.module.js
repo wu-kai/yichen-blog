@@ -1,5 +1,5 @@
 const state = {
-  title:'更好的yichenk',
+  title:'better yichen',
   editingContent:'<h1>demo</h1>'
 };
 const mutations = {

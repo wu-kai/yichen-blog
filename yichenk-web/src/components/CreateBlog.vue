@@ -8,7 +8,7 @@
 <script>
   import { mapState } from 'vuex';
   import editor from '../cpmponents.utils/editor.vue';
-  const HelloWorld = {
+  const CreateBlog = {
     data:function(){
       return {
         content:'123'
@@ -29,7 +29,7 @@
       }
     }
   };
-  export default HelloWorld;
+  export default CreateBlog;
 </script>
 <style scoped>
 

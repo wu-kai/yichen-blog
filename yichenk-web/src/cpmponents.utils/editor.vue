@@ -28,7 +28,7 @@
       const self = this;
       $(this.$el).append($('<div id="'+self.id+'"></div>'));
       self.editor = UE.getEditor(self.id, {
-        initialFrameWidth:'100%',
+        initialFrameWidth:'50%',
         initialFrameHeight:'500',
         UEDITOR_HOME_URL:'/static/lib/ueditor-utf8-php/'
       });

@@ -6,7 +6,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 import directive from './directives'
-
+require('./css/font-awesome.css');
+require('./css/common.css');
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
