@@ -1,21 +1,24 @@
 # 关于博客
 
-blog.yichenk.com
+其实想一下github的issue用来写博客还是很方便的
 
-yichenk.blog.web 作为使用react和一个待定ui框架构建的博客
+所以以后也会继续在这里面记录一些学习历程
 
-yichenk.blog.admin 作为使用angula5和ionic3构建的博客后台
+当然我的个人博客也会继续维护
 
-是完全独立的两个项目。
+也会放上简历和一个作品在个人博客里
 
-#
-希望在18年可以有一个雏形
+地址是 http://www.yichenk.com
+
+暂时还是很简陋的
+
+不过未来是光明的
+
+16/6-18/6的小目标虽然还差了一点点，不过也算勉强完成了
+
+哈哈
+
+接下来就是18/6-20/6相信可以变得更好
 
 
-> react中文文档 https://doc.react-china.org/docs/hello-world.html
-
-> angular中文文档 https://angular.cn/docs
-
-
-
-
+加油
