@@ -1,3 +1,5 @@
 blog.yichenk.com/server/config.js
 yichenk-server/dist/
 yichenk-server/images/
+
+*.html linguist-language=html
