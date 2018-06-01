@@ -27,7 +27,7 @@
 </script>
 
 <style scoped>
-  .navigation {
-
+  .blog-list {
+    padding: 150px 0 50px;
   }
 </style>

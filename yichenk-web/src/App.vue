@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-showSocialistValues>
     <NavigationBar></NavigationBar>
     <NavigationMenu v-if="$store.state.menuShow"></NavigationMenu>
     <router-view :class="{filter:$store.state.menuShow}"/>
@@ -12,14 +12,12 @@
 
   export default {
     name: 'App',
-    components:{
+    components: {
       NavigationBar,
       NavigationMenu
     },
-    mounted(){
-      $(this.$el).css({
-
-      })
+    mounted() {
+      $(this.$el).css({})
     }
   }
 </script>
