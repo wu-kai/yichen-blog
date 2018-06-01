@@ -26,8 +26,8 @@ app.use(bodyParser.urlencoded({extended: true, limit: BODY_PARSER_MAX_BYTES}));
 app.use(uploadPath, ueditor(path.join(__dirname, '/images'), function (req, res, next) {
 	var date = new Date();
 	var y= date.getFullYear();
-	var m= date.getMonth();
-	var d= date.getDay();
+	var m= date.getMonth()+1;
+	var d= date.getDate();
 	// ueditor 客户发起上传图片请求
 	if (req.query.action === 'uploadimage') {
 		var foo = req.ueditor;
