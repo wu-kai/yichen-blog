@@ -70,3 +70,9 @@ button{
 .common_button:hover{
   background: #3949ab;
 }
+.common_container{
+  max-width: 1200px;
+  width: 80%;
+  overflow: hidden;
+  margin: 0 auto;
+}

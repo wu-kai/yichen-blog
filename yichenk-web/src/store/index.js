@@ -11,7 +11,8 @@ const store = new Vuex.Store({
     menuShow:false,
     menuList:[
       {name:'Home',value:'Home'},
-      {name:'CreateBlog',value:'CreateBlog'}
+      {name:'CreateBlog',value:'CreateBlog'},
+      {name:'blogList',value:'BlogList'}
     ]
   },
   mutations:{
