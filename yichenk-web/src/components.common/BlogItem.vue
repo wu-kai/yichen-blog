@@ -1,5 +1,5 @@
 <template>
-  <div class="blog clearF">
+  <div class="blog clearF" @click="goDetails()">
     <div class="img">
       <img :src="imgUrl" alt="">
     </div>
@@ -29,6 +29,12 @@
       imgUrl() {
         const defaultUrl = 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg';
         return this.blog.createTime.image || defaultUrl
+      }
+    },
+    methods:{
+      goDetails(){
+        this.$store.state.blog.currentBlog = this.blog;
+        this.$router.push('/details')
       }
     }
   }

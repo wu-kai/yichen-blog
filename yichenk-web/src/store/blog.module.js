@@ -7,7 +7,8 @@ const state = {
   editingBlogImage: '',
   editingBlogAuthor: '',
   editingBlogInfo: '',
-  editingBlogContent: ''
+  editingBlogContent: '',
+  currentBlog:{}
 };
 const mutations = {
   saveTempBlogContent(state, content) {

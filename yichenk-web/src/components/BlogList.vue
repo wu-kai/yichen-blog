@@ -1,6 +1,9 @@
 <template>
   <div class="blog-list common_container">
-    <BlogItem v-for="blog in list" :blog="blog" :key="blog._id"></BlogItem>
+    <BlogItem v-for="blog in list"
+              :blog="blog"
+              :key="blog._id">
+    </BlogItem>
   </div>
 </template>
 
@@ -17,7 +20,6 @@
       const self = this;
       this.$store.dispatch('getBlogList')
         .then(function(success){
-        console.log(self.list);
       });
     },
     components:{
