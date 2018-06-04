@@ -66,13 +66,15 @@
       save() {
         const self = this;
         this.$store.commit('updateEditingBlog',this.blog);
-        console.log(this.$store.getters.editingBlog);
         this.$store.dispatch('createBlog').then(function(res){
           if(res.status === 200){
             self.$notify.success({
               content: '创建成功',
               duration: 3000
             });
+            setTimeout(function(){
+              location.reload();
+            },3000)
           }
         },function(err){
           console.log(err);

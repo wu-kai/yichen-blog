@@ -20,7 +20,7 @@ const mutations = {
     state.editingBlogAuthor = blog.author || '';
     state.editingBlogInfo = blog.info || '';
   },
-  clearEditingBlog(state) {
+  initEditingBlog(state) {
     state.editingBlogTitle = '';
     state.editingBlogLabels = '';
     state.editingBlogContent = '';
