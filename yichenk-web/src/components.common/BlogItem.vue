@@ -6,7 +6,10 @@
     <div class="more">
       <h1 v-text="blog.title||'no title'"></h1>
       <p v-text="info"></p>
-      <div>发布时间:{{time}}</div>
+      <div class="time">
+        <div>{{updateTime}}</div>
+        <div>{{time}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +27,10 @@
         return '内容提要：' + (this.blog.info || '没有详情介绍')
       },
       time() {
-        return (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+        return '创建日期 : ' + (new Date(this.blog.created||this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+      },
+      updateTime() {
+        return '更新日期 : ' + (new Date(this.blog.updated||'')).Format('yyyy-MM-dd hh:mm:ss')
       },
       imgUrl() {
         const defaultUrl = 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg';
@@ -89,9 +95,9 @@
     text-align: left;
     padding-top: 10px;
   }
-  .more>div{
+  .more>div.time{
     text-align: right;
-    padding-top: 50px;
+    padding-top: 30px;
     color: #aeaeae;
   }
 </style>

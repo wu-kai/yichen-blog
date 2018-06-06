@@ -10,14 +10,13 @@ var blogSchema = new Schema({
 	img: String,		//列表缩略图
 	info:String,		//简介
 	comments: [{body: String, date: Date}],		//评论{内容，日期}
-	createTime: {type: Date, default: Date.now},		//创建时间，默认
 	hidden: Boolean,		//是否隐藏
 	meta: {
 		votes: Number,		//投票
 		favs: Number		//收藏ps暂时没什么用
 	},
 	category: String   //分类
-});
+},{timestamps: {createdAt: 'created', updatedAt: 'updated'}});
 
 var blog = mongoose.model('blog', blogSchema);
 var instance = {
@@ -27,7 +26,7 @@ var instance = {
 
 //common
 instance.findAll = function (callback) {
-	blog.find(callback);
+	blog.find({},callback).sort({'updated':-1,'created':-1,'createTime':-1})
 };
 
 //admin

@@ -4,6 +4,7 @@
     <h2 v-text="blog.title"></h2>
     <div class="content-info">
       <span v-text="contentTime"></span>
+      <span v-text="updateTime"></span>
       <span v-text="contentLabel"></span>
       <span v-text="contentAuthor"></span>
     </div>
@@ -39,7 +40,10 @@
     },
     computed: {
       contentTime() {
-        return '创建日期 : ' + (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+        return '创建日期 : ' + (new Date(this.blog.created||this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+      },
+      updateTime() {
+        return '更新日期 : ' + (new Date(this.blog.updated||'')).Format('yyyy-MM-dd hh:mm:ss')
       },
       contentLabel() {
         return '标签 : ' + (_.isArray(this.blog.label) ? this.blog.label[0] : '')
