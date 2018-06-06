@@ -9,7 +9,7 @@ var blogSchema = new Schema({
 	image: String,		//文章顶部图片
 	img: String,		//列表缩略图
 	info:String,		//简介
-  createTime:new Date(),
+  createTime:{type:Date,default: Date.now},
 	comments: [{body: String, date: Date}],		//评论{内容，日期}
 	hidden: Boolean,		//是否隐藏
 	meta: {
