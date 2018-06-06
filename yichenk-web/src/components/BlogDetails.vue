@@ -40,7 +40,7 @@
     },
     computed: {
       contentTime() {
-        return '创建日期 : ' + (new Date(this.blog.created||this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+        return '创建日期 : ' + (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
       },
       updateTime() {
         return '更新日期 : ' + (new Date(this.blog.updated||'')).Format('yyyy-MM-dd hh:mm:ss')

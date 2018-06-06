@@ -9,6 +9,7 @@ var blogSchema = new Schema({
 	image: String,		//文章顶部图片
 	img: String,		//列表缩略图
 	info:String,		//简介
+  createTime:new Date(),
 	comments: [{body: String, date: Date}],		//评论{内容，日期}
 	hidden: Boolean,		//是否隐藏
 	meta: {
@@ -16,7 +17,7 @@ var blogSchema = new Schema({
 		favs: Number		//收藏ps暂时没什么用
 	},
 	category: String   //分类
-},{timestamps: {createdAt: 'created', updatedAt: 'updated'}});
+},{timestamps: {updatedAt: 'updated'}});
 
 var blog = mongoose.model('blog', blogSchema);
 var instance = {
