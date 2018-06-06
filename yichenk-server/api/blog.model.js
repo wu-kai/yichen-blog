@@ -46,10 +46,13 @@ instance.web.editBlog = function (data, callback) {
 			callback(err)
 		} else {
 			blogDoc.title = data.title;
-			blogDoc.label = data.label;
+			blogDoc.label = (data.label || data.labels).split(',');
 			blogDoc.body = data.body;
 			blogDoc.author = data.author;
 			blogDoc.category = data.category;
+			blogDoc.image = data.image;
+			blogDoc.img = data.img;
+			blogDoc.info = data.info;
 			blogDoc.save(function (err, blogDoc) {
 				if (err) {
 					callback(err)

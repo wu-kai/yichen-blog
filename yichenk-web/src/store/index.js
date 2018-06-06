@@ -10,8 +10,7 @@ const store = new Vuex.Store({
     homeTitle:'better yichen',
     menuShow:false,
     menuList:[
-      {name:'Home',value:'Home'},
-      {name:'CreateBlog',value:'CreateBlog'},
+      {name:'home',value:'Home'},
       {name:'blogList',value:'BlogList'}
     ]
   },

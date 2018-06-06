@@ -23,7 +23,7 @@
     </div>
     <div class="form-control">
       <div class="editor">
-        <editor id="ueditor-demo2" height="320"></editor>
+        <editor id="ueditor-demo2" height="320" :content="blog.body"></editor>
       </div>
     </div>
     <div class="form-control">
@@ -45,8 +45,10 @@
           labels:'',
           image:'',
           author:'',
-          info:''
-        }
+          info:'',
+          body:''
+        },
+        id:''
       }
     },
     computed: {
@@ -65,11 +67,12 @@
     methods: {
       save() {
         const self = this;
+        const submit = this.id?'updateBlog':'createBlog';
         this.$store.commit('updateEditingBlog',this.blog);
-        this.$store.dispatch('createBlog').then(function(res){
+        this.$store.dispatch(submit,self.id).then(function(res){
           if(res.status === 200){
             self.$notify.success({
-              content: '创建成功',
+              content: self.id?'修改成功':'创建成功',
               duration: 3000
             });
             setTimeout(function(){
@@ -89,6 +92,26 @@
     },
     mounted() {
 
+    },
+    created(){
+      const self = this;
+      this.id=this.$route.params.id;
+      if(this.id){
+        this.id=this.$route.params.id;
+        this.$store.dispatch('getBlogByID',this.id)
+          .then(function(result){
+            self.blog = {
+              title:result.title||'',
+              labels:result.label.join(',')||'',
+              image:result.image||'',
+              author:result.author||'',
+              body:result.body||'',
+              info:result.info||''
+            };
+          },function(err){
+            console.log(err);
+          })
+      }
     }
   };
   export default CreateBlog;

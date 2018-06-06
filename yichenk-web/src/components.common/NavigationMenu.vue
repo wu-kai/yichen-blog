@@ -2,8 +2,8 @@
   <div class="menu">
     <ul>
       <li v-for="menu in list"
-          :key="menu.value" v-text="menu.name"
-          @click="to(menu.value)">
+          :key="menu.value" v-text="menu.value"
+          @click="to(menu.name)">
       </li>
     </ul>
     <div class="fa fa-times close" @click="close()"></div>
@@ -22,7 +22,7 @@
     },
     methods:{
       to(menu){
-        this.$router.push(menu);
+        this.$router.push({name:menu});
         this.$store.commit('hideMenu');
       },
       close(){

@@ -33,6 +33,7 @@ body{
     min-width:400px;
     min-height: 100%;
     /*margin:70px auto 50px;*/
+    height:100%;
 }
 #home .blogList .content img{
     display: inline-block;

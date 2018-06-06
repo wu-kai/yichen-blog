@@ -8,7 +8,7 @@ const state = {
   editingBlogAuthor: '',
   editingBlogInfo: '',
   editingBlogContent: '',
-  currentBlog:{}
+  currentBlog: {}
 };
 const mutations = {
   saveTempBlogContent(state, content) {
@@ -46,22 +46,70 @@ const actions = {
       data: blog
     })
   },
+  updateBlog(context, id) {
+    const blog = {
+      title: context.state.editingBlogTitle,
+      author: context.state.editingBlogAuthor,
+      body: context.state.editingBlogContent,
+      label: context.state.editingBlogLabels,
+      image: context.state.editingBlogImage,
+      info: context.state.editingBlogInfo,
+    };
+    blog.id = id;
+    return axios({
+      method: 'POST',
+      url: '/api/blog/editBlog',
+      data: blog
+    })
+  },
   getBlogList(context) {
-    return new Promise(function(resolve,reject){
+    return new Promise(function (resolve, reject) {
       axios({
         method: 'GET',
         url: '/api/blog/findAll'
-      }).then(function(res){
-        if(res.status === 200){
+      }).then(function (res) {
+        if (res.status === 200) {
           context.state.blogList = res.data;
           resolve();
-        }else{
+        } else {
           console.log(res);
         }
-      },function(err){
+      }, function (err) {
         console.log(err);
       })
     });
+  },
+  getBlogByID(context, id) {
+    return new Promise(function (resolve, reject) {
+      axios({
+        method: 'GET',
+        url: '/api/blog/findByID',
+        params: {id: id}
+      }).then(function (res) {
+        if (res.status === 200) {
+          resolve(res.data);
+        }
+      }, function (err) {
+        console.log(err);
+      })
+    })
+  },
+  validate(context, value) {
+    return new Promise(function (resolve, reject) {
+      axios({
+        method: 'GET',
+        url: '/api/blog/validate',
+        params: {
+          validateValue: value
+        }
+      }).then(function (res) {
+        if (res.status === 200) {
+          resolve(res.data);
+        }
+      }, function (err) {
+        console.log(err);
+      })
+    })
   }
 
 };

@@ -29,20 +29,19 @@ router.get('/findAll',function(req,res){
     })
 });
 
-router.get('/deleteDemoById/:id',function(req,res){
-    var id=req.params.id;
-    blog.web.deleteById(id,function(err,ok){
-        if(err){
-            res.jsonp(err);
-        }else{
-            res.jsonp(ok);
-        }
-    });
+router.get('/findByID',function(req,res){
+	var id=req.query.id;
+	blog.web.findById(id,function(err,ok){
+		if(err){
+			res.jsonp(err);
+		}else{
+			res.jsonp(ok);
+		}
+	});
 });
 
 router.post('/deleteBlogById',function(req,res){
 	var id=req.body.id;
-	console.log(id);
 	blog.web.deleteById(id,function(err,ok){
 		if(err){
 			res.jsonp(err);
@@ -61,6 +60,16 @@ router.post('/editBlog',function(req,res){
 		}
 	});
 });
+router.get('/validate',function(req,res){
+	var value = req.query.validateValue;
+	if(value === 'manage'){
+		res.jsonp({result:true})
+	}else{
+		res.jsonp({result:false})
+	}
+});
+
+
 
 module.exports = router;
 
