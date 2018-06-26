@@ -46,7 +46,8 @@
     color: #1e88e5;
   }
   ul{
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     margin: 150px auto 0;
     font-size: 40px;
   }

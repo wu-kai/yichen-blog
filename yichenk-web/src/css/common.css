@@ -96,4 +96,11 @@ button{
   /*80%{opacity: 0.2;transform: translateY(40px)}*/
   100%{opacity: 0;transform: translateY(-50px)}
 }
+.arrow_down{
+  background: url('../images/arrow_down.png') no-repeat center;
+  background-size: 100%;
+}
+.arrow_down:hover{
+  cursor: pointer;
+}
 

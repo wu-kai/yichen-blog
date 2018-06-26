@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state:{
-    homeTitle:'better yichen',
+    homeTitle:'Better Yichen',
     menuShow:false,
     menuList:[
       {name:'home',value:'Home'},
