@@ -79,7 +79,7 @@
       this.showTitle = true;
       setTimeout(function () {
         self.showMore = true;
-      }, 2200);
+      }, 1100);
     }
   };
   export default Home;
