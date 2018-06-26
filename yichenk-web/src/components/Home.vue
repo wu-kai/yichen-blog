@@ -24,6 +24,7 @@
         showTitle: false,
         showInfo: false,
         showMore:false,
+        isShowContent:false,
       }
     },
     computed: {
