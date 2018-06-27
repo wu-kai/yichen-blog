@@ -1,10 +1,10 @@
 <template>
   <div class="blog clearF" @click="goDetails()">
-    <div class="img">
-      <img :src="imgUrl" alt="">
-    </div>
+    <h1 v-text="blog.title||'no title'"></h1>
     <div class="more">
-      <h1 v-text="blog.title||'no title'"></h1>
+      <div class="img">
+        <img :src="imgUrl" alt="">
+      </div>
       <p v-text="info"></p>
       <div class="time">
         <div>{{updateTime}}</div>
@@ -47,16 +47,19 @@
 </script>
 
 <style lang="postcss" scoped>
+  *{
+    font-family: 宋体;
+  }
   .blog {
-    width: 60%;
+    width: 100%;
     margin: 0 auto 0;
     position: relative;
     z-index: 999;
-    padding: 20px 10px;
     /*border-bottom: 1px dashed #c4c4c4;*/
     transition: all 0.5s;
-    height: 100%;
-    overflow-y: auto;
+    box-shadow: 0px 0 26px 2px #a2a2a2;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
   }
 
   .blog:hover {
