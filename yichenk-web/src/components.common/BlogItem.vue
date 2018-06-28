@@ -1,15 +1,19 @@
 <template>
-  <div class="blog clearF" @click="goDetails()">
-    <h1 v-text="blog.title||'no title'"></h1>
+  <div class="blog clearF">
+    <div class="item-head">
+      <h1 v-text="blog.title||'no title'"></h1>
+      <span class="time">{{time}}</span>
+    </div>
     <div class="more">
-      <div class="img">
-        <img :src="imgUrl" alt="">
-      </div>
       <p v-text="info"></p>
-      <div class="time">
-        <div>{{updateTime}}</div>
-        <div>{{time}}</div>
+    </div>
+    <div class="item-foot">
+      <div class="item-labels">
+        <span v-for="label in labels" class="item-label">
+          <tag type="info" rounded v-text="label"></tag>
+        </span>
       </div>
+      <div class="readAll" @click="goDetails()"><tag type="primary">阅读全文 >></tag></div>
     </div>
   </div>
 </template>
@@ -24,10 +28,10 @@
         return (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
       },
       info() {
-        return '内容提要：' + (this.blog.info || '没有详情介绍')
+        return (this.blog.info || '作者太懒，没有写内容预览')
       },
       time() {
-        return '创建日期 : ' + (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
+        return (new Date(this.blog.createTime)).Format('yyyy-MM-dd hh:mm:ss')
       },
       updateTime() {
         return '更新日期 : ' + (new Date(this.blog.updated||'')).Format('yyyy-MM-dd hh:mm:ss')
@@ -35,6 +39,19 @@
       imgUrl() {
         const defaultUrl = 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg';
         return this.blog.createTime.image || defaultUrl
+      },
+      labels(){
+        let arr = [];
+        console.log(this.blog.label);
+        _.each(this.blog.label,function(item){
+          if(item.indexOf('，')!==-1){
+            arr = arr.concat(item.split('，'));
+          }
+          if(item.indexOf(',')!==-1){
+            arr = arr.concat(item.split(','));
+          }
+        });
+        return arr;
       }
     },
     methods:{
@@ -57,18 +74,19 @@
     z-index: 999;
     /*border-bottom: 1px dashed #c4c4c4;*/
     transition: all 0.5s;
-    box-shadow: 0px 0 26px 2px #a2a2a2;
-    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 13px -1px #6f6f6f;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
+    padding: 16px 20px 0;
+    box-sizing: border-box;
   }
 
-  .blog:hover {
-    background: rgba(238, 238, 238, 0.38);
-    cursor: pointer;
-    box-shadow: 0 0 13px -1px #dcdcdc;
-    transform: translateY(-1px);
-
-  }
+  /*.blog:hover {*/
+    /*background: rgba(255, 255, 255, 0.6);*/
+    /*cursor: pointer;*/
+    /*box-shadow: 0px 0 26px 2px #a2a2a2;*/
+    /*transform: translateY(-1px);*/
+  /*}*/
 
   .blog:hover .img img {
     width: 120%;
@@ -87,20 +105,61 @@
     width: 100%;
   }
   .more{
-    padding-left: 26px;
-    float: left;
-    width: calc(100% - 180px);
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid #989898;
+
+  }
+  .item-head{
+    overflow: hidden;
   }
   h1{
+    float: left;
     text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+  .item-head .time{
+    float: right;
+    font-size: 13px;
+    color: #94928e;
+    padding-top: 10px;
   }
   .more>p{
     text-align: left;
-    padding-top: 10px;
+    padding: 0 20px;
+    text-indent: 20px;
+    font-family: cursive;
+    font-size: 18px;
   }
-  .more>div.time{
-    text-align: right;
-    padding-top: 30px;
-    color: #aeaeae;
+  .item-foot{
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  .item-foot .item-labels{
+    overflow: hidden;
+    float: left;
+    font-size: 13px;
+    width: calc(100% - 100px);
+    text-align: left;
+  }
+  .item-foot .item-label{
+    font-weight: 500;
+    color: #858585;
+    font-family: Broadway;
+    margin-right: 10px;
+  }
+  .item-foot .readAll{
+    float: right;
+  }
+  .item-foot .readAll:hover{
+    cursor: pointer;
+  }
+
+  @media screen and (max-width:400px){
+    .blog{
+
+    }
   }
 </style>

@@ -143,4 +143,58 @@
     overflow-x: hidden;
     padding: 20px;
   }
+
+  @media screen and (max-width:900px){
+    .left{
+      width: 100%;
+      height: 170px;
+    }
+    .left .content .overlay{
+      height: 70px;
+    }
+    .left .content .header-box{
+      top: 30px;
+    }
+    .left .content .header{
+      height: 80px;
+      width: 80px;
+    }
+    .left .content .header-box h3{
+      font-size: 20px;
+    }
+    .left .content .header-box p{
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .list-box{
+      margin-left: 0;
+      margin-top: 170px;
+    }
+  }
+
+  @media screen and (max-width:500px){
+    .left{
+      width: 100%;
+      height: 160px;
+    }
+    .left .content .overlay{
+      height: 70px;
+    }
+    .left .content .header-box{
+      top: 40px;
+    }
+    .list-box{
+      padding: 20px 5px;
+    }
+    .left .content .header{
+      height: 60px;
+      width: 60px;
+    }
+
+    .list-box{
+      margin-left: 0;
+      margin-top: 160px;
+    }
+  }
 </style>
