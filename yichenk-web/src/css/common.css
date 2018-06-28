@@ -103,4 +103,18 @@ button{
 .arrow_down:hover{
   cursor: pointer;
 }
-
+.mouseOverShowMessage{
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  display: none;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border: 1px solid #0f0f0f;
+  border-radius: 4px;
+  line-height: 16px;
+  font-size: 13px;
+  font-family: 微软雅黑;
+  padding: 5px 6px;
+}

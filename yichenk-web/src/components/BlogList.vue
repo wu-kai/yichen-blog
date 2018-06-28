@@ -1,11 +1,13 @@
 <template>
   <div class="blog-list-box">
-    <audio id="music" src="http://p9kmzrcfb.bkt.clouddn.com/%E9%99%88%E5%8B%8B%E5%A5%87%20-%20%E6%8C%9A%E7%88%B1.mp3" autoplay loop></audio>
+    <audio id="music" :src="musicList[0]" loop autoplay></audio>
     <div class="left">
       <div class="content">
         <div class="overlay">
           <img src="../images/music.png" alt=""
+               v-mouseOver="'双击可随机切换'"
                @click="pausedMusic()"
+               @dblclick="changeMusic()"
                :class="[isPaused?'paused':'']">
         </div>
         <div class="header-box">
@@ -36,18 +38,34 @@
       return {
         showHead:false,
         musicEl:'',
-        isPaused:false
+        isPaused:false,
+        timer:''
       }
     },
     methods:{
       pausedMusic:function(){
-        this.isPaused?this.musicEl[0].play():this.musicEl[0].pause();
-        this.isPaused = !this.isPaused;
+        let self = this;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(function(){
+          self.isPaused?self.musicEl[0].play():self.musicEl[0].pause();
+          self.isPaused = !self.isPaused;
+        }, 300);
+      },
+      changeMusic(){
+        clearTimeout(this.timer);
+        let max = this.musicList.length;
+        let index = Math.ceil(Math.random()*max);
+        index = index === 0?index:index-1;
+        this.musicEl[0].src = this.musicList[index];
+        this.musicEl[0].play();
       }
     },
     computed:{
       list(){
         return this.$store.state.blog.blogList;
+      },
+      musicList(){
+        return this.$store.state.musicList;
       }
     },
     mounted(){
@@ -57,6 +75,7 @@
       });
       self.showHead = true;
       this.musicEl = $('#music');
+      this.musicEl[0].volume = 0.05;
     },
     components:{
       BlogItem
@@ -171,7 +190,7 @@
     animation-timing-function:linear;
     top:12px;
     right:12px;
-    animation-play-state: running
+    animation-play-state: running;
   }
   .overlay img:hover{
     cursor: pointer;
