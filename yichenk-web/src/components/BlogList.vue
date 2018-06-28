@@ -76,6 +76,7 @@
       self.showHead = true;
       this.musicEl = $('#music');
       this.musicEl[0].volume = 0.05;
+      this.musicEl[0].play();
     },
     components:{
       BlogItem
