@@ -42,7 +42,6 @@
       },
       labels(){
         let arr = [];
-        console.log(this.blog.label);
         _.each(this.blog.label,function(item){
           if(item.indexOf('，')!==-1){
             arr = arr.concat(item.split('，'));

@@ -1,8 +1,13 @@
 <template>
   <div class="blog-list-box">
+    <audio id="music" src="http://p9kmzrcfb.bkt.clouddn.com/%E9%99%88%E5%8B%8B%E5%A5%87%20-%20%E6%8C%9A%E7%88%B1.mp3" autoplay loop></audio>
     <div class="left">
       <div class="content">
-        <div class="overlay"></div>
+        <div class="overlay">
+          <img src="../images/music.png" alt=""
+               @click="pausedMusic()"
+               :class="[isPaused?'paused':'']">
+        </div>
         <div class="header-box">
           <div class="header">
             <transition name="showHead">
@@ -29,7 +34,15 @@
     name: 'BlogList',
     data:function(){
       return {
-        showHead:false
+        showHead:false,
+        musicEl:'',
+        isPaused:false
+      }
+    },
+    methods:{
+      pausedMusic:function(){
+        this.isPaused?this.musicEl[0].play():this.musicEl[0].pause();
+        this.isPaused = !this.isPaused;
       }
     },
     computed:{
@@ -43,6 +56,7 @@
         .then(function(success){
       });
       self.showHead = true;
+      this.musicEl = $('#music');
     },
     components:{
       BlogItem
@@ -144,6 +158,38 @@
     padding: 20px;
   }
 
+  .overlay{
+    position: relative;
+  }
+
+  .overlay img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    animation: music 6s ;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+    top:12px;
+    right:12px;
+    animation-play-state: running
+  }
+  .overlay img:hover{
+    cursor: pointer;
+  }
+
+  .overlay img.paused{
+    animation-play-state: paused;
+  }
+
+  @keyframes music {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+
   @media screen and (max-width:900px){
     .left{
       width: 100%;
@@ -170,6 +216,11 @@
     .list-box{
       margin-left: 0;
       margin-top: 170px;
+    }
+
+    .overlay img{
+      width: 40px;
+      height: 40px;
     }
   }
 
