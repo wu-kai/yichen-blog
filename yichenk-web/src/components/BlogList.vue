@@ -36,7 +36,7 @@
       return {
         showHead:false,
         musicEl:'',
-        isPaused:false
+        isPaused:true
       }
     },
     methods:{
