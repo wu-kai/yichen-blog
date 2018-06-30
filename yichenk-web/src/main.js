@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import $ from 'jquery'
+import _ from 'lodash'
 import App from './App'
 import router from './router'
 import store from './store'

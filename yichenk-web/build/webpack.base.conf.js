@@ -79,6 +79,13 @@ module.exports = {
           options: '$'
         }]
       },
+      {
+        test: require.resolve('lodash'),
+        use: [{
+          loader: 'expose-loader',
+          options: '_'
+        }]
+      },
     ]
   },
   node: {
