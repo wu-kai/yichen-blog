@@ -22,16 +22,13 @@
       </div>
     </div>
     <div class="list-box">
-        <BlogItem v-for="blog in list"
-                  :blog="blog"
-                  :key="blog._id">
-        </BlogItem>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-  import BlogItem from '../components.common/BlogItem.vue'
+  import BlogListBox from '../components.common/BlogListBox'
   export default {
     name: 'BlogList',
     data:function(){
@@ -79,7 +76,7 @@
       this.musicEl[0].play();
     },
     components:{
-      BlogItem
+      BlogListBox
     }
   }
 </script>
@@ -171,7 +168,7 @@
   .showHead-enter-to{}
   .list-box{
     margin-left: 300px;
-    box-sizing: content-box;
+    box-sizing: border-box;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
