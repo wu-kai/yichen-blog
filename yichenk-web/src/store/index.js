@@ -11,7 +11,8 @@ const store = new Vuex.Store({
     menuShow:false,
     menuList:[
       {name:'home',value:'Home'},
-      {name:'blogList',value:'BlogList'}
+      {name:'blogList',value:'BlogList'},
+      {name:'resume',value:'Resume'}
     ],
     musicList:[
       'http://p9kmzrcfb.bkt.clouddn.com/music/Imagine%20Dragons-Radioactive.mp3',

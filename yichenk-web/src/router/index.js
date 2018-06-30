@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Manage from '@/components/Manage'
 import Home from '@/components/Home'
 import BlogList from '@/components/BlogList'
+import Resume from '@/components/Resume'
 import BlogListBox from '@/components.common/BlogListBox'
 import BlogDetailsBox from '@/components.common/BlogDetailsBox'
 
@@ -14,6 +15,7 @@ export default new Router({
     {path: '/Home', name: 'home_', component: Home},
     {path: '/manage/:id', name: 'manage', component: Manage},
     {path: '/manage', name: 'manage_', component: Manage},
+    {path: '/resume', name: 'resume', component: Resume},
     {
       path: '/blogList', name: 'blogList', component: BlogList,
       children: [
