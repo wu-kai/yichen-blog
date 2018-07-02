@@ -69,6 +69,7 @@
       const self = this;
       this.$store.dispatch('getBlogList')
         .then(function(success){
+          self.$router.push({name:''});
       });
       self.showHead = true;
       this.musicEl = $('#music');

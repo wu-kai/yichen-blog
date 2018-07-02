@@ -1,14 +1,15 @@
 <template>
-    <div class="blog" v-if="!!blog">
+    <div class="blog">
+      <div  v-if="!!blog">
         <h1 v-text="blog.title"></h1>
         <div class="information">
-            <span v-text="startTime"></span>
-            <span v-text="updateTime"></span>
-            <span v-text="author"></span>
+          <span v-text="startTime"></span>
+          <span v-text="updateTime"></span>
+          <span v-text="author"></span>
         </div>
         <div class="info" v-text="info"></div>
         <div class="content">
-            <p v-html="blog.body"></p>
+          <p v-html="blog.body"></p>
         </div>
         <div class="item-labels">
             <span v-for="label in labels" class="item-label">
@@ -16,20 +17,21 @@
             </span>
         </div>
         <div class="switch">
-            <span></span>
-            <span></span>
-            <div class="edit">
-                <modal title="输入许可指令" :width="520"
-                       :is-show="isShow"
-                       transition="fadeDown"
-                       @close="isShow=false" :on-ok="submit" :on-cancel="cancel">
-                    <p class="control">
-                        <input class="input" type="text" v-model="key">
-                    </p>
-                </modal>
-                <button @click="toggle" class="button is-primary">编辑</button>
-            </div>
+          <span></span>
+          <span></span>
+          <div class="edit">
+            <modal title="输入许可指令" :width="520"
+                   :is-show="isShow"
+                   transition="fadeDown"
+                   @close="isShow=false" :on-ok="submit" :on-cancel="cancel">
+              <p class="control">
+                <input class="input" type="text" v-model="key">
+              </p>
+            </modal>
+            <button @click="toggle" class="button is-primary">编辑</button>
+          </div>
         </div>
+      </div>
     </div>
 </template>
 
@@ -109,7 +111,7 @@
             console.log(err);
           })
       }
-    },
+    }
   }
 </script>
 

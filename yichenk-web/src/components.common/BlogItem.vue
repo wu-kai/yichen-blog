@@ -68,7 +68,7 @@
   }
   .blog {
     width: 100%;
-    margin: 0 auto 0;
+    margin: 0 auto 20px;
     position: relative;
     z-index: 999;
     /*border-bottom: 1px dashed #c4c4c4;*/
