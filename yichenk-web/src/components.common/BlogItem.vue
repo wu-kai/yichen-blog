@@ -56,7 +56,7 @@
     methods:{
       goDetails(){
         this.$store.state.blog.currentBlog = this.blog;
-        this.$router.push('blogDetailsBox/'+this.blog._id)
+        this.$router.push('/blogList/BlogDetailsBox/'+this.blog._id)
       }
     }
   }

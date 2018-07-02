@@ -10,9 +10,9 @@ const store = new Vuex.Store({
     homeTitle:'Better Yichen',
     menuShow:false,
     menuList:[
-      {name:'home',value:'Home'},
-      {name:'blogList',value:'BlogList'},
-      {name:'resume',value:'Resume'}
+      {name:'home',value:'Home',path:'/'},
+      {name:'blogList',value:'BlogList',path:'/blogList'},
+      {name:'resume',value:'Resume',path:'/resume'}
     ],
     musicList:[
       'http://p9kmzrcfb.bkt.clouddn.com/music/Imagine%20Dragons-Radioactive.mp3',

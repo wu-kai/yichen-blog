@@ -17,7 +17,7 @@
         <transition name="fadeTop">
           <div v-if="showMore&&!isShowContent" class="showMore">
             <span>点此开始</span>
-            <i class="arrow_down" @click="showContent($event)"></i>
+            <i class="_arrow_down" @click="showContent($event)"></i>
           </div>
         </transition>
       </div>

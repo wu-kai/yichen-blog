@@ -17,7 +17,7 @@ export default new Router({
     {path: '/manage', name: 'manage_', component: Manage},
     {path: '/resume', name: 'resume', component: Resume},
     {
-      path: '/blogList/', name: 'blogList', component: BlogList,
+      path: '/blogList', component: BlogList,
       children: [
         {path:'',component:BlogListBox},
         {path:'blogDetailsBox/:id',component:BlogDetailsBox},
