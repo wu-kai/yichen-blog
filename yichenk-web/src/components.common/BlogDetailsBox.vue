@@ -1,38 +1,41 @@
 <template>
-    <div class="blog">
-      <div  v-if="!!blog">
-        <h1 v-text="blog.title"></h1>
-        <div class="information">
-          <span v-text="startTime"></span>
-          <span v-text="updateTime"></span>
-          <span v-text="author"></span>
-        </div>
-        <div class="info" v-text="info"></div>
-        <div class="content">
-          <p v-html="blog.body"></p>
-        </div>
-        <div class="item-labels">
+    <transition name="blogDetails">
+    <div class="blog" v-if="isShowDetails">
+        <div  v-if="!!blog">
+            <h1 v-text="blog.title"></h1>
+            <div class="information">
+                <span v-text="startTime"></span>
+                <span v-text="updateTime"></span>
+                <span v-text="author"></span>
+            </div>
+            <div class="info" v-text="info"></div>
+            <div class="content">
+                <p v-html="blog.body"></p>
+            </div>
+            <div class="item-labels">
             <span v-for="label in labels" class="item-label">
                 <tag type="info" rounded v-text="label"></tag>
             </span>
+            </div>
+            <div class="switch">
+                <span></span>
+                <span></span>
+                <div class="edit">
+                    <modal title="输入许可指令" :width="520"
+                           :is-show="isShow"
+                           transition="fadeDown"
+                           @close="isShow=false" :on-ok="submit" :on-cancel="cancel">
+                        <p class="control">
+                            <input class="input" type="text" v-model="key">
+                        </p>
+                    </modal>
+                    <button @click="toggle" class="button is-primary">编辑</button>
+                    <button @click="back" class="button is-danger">返回</button>
+                </div>
+            </div>
         </div>
-        <div class="switch">
-          <span></span>
-          <span></span>
-          <div class="edit">
-            <modal title="输入许可指令" :width="520"
-                   :is-show="isShow"
-                   transition="fadeDown"
-                   @close="isShow=false" :on-ok="submit" :on-cancel="cancel">
-              <p class="control">
-                <input class="input" type="text" v-model="key">
-              </p>
-            </modal>
-            <button @click="toggle" class="button is-primary">编辑</button>
-          </div>
-        </div>
-      </div>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -44,7 +47,8 @@
         id: '',
         blog: '',
         isShow: false,
-        key: ''
+        key: '',
+        isShowDetails:false,
       }
     },
     computed: {
@@ -95,6 +99,9 @@
             })
         }
       },
+      back(){
+        this.$router.go(-1);
+      },
       cancel() {
         this.key = '';
       }
@@ -111,6 +118,9 @@
             console.log(err);
           })
       }
+    },
+    mounted(){
+      this.isShowDetails = true;
     }
   }
 </script>
@@ -176,6 +186,11 @@
         background:#477198;
     }
 
+    .switch .edit button.button.is-danger{
+        width:100px;
+        background-color: #f56954;
+    }
+
     .item-labels{
         overflow: hidden;
         float: left;
@@ -189,4 +204,12 @@
         font-family: Broadway;
         margin-right: 10px;
     }
+    .blogDetails-enter{
+        transform:translateX(100px);
+        opacity:0;
+    }
+    .blogDetails-enter-active{
+        transition:all 0.7s;
+    }
+    .blogDetails-enter-to{}
 </style>
