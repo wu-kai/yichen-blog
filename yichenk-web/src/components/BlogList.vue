@@ -234,6 +234,7 @@
     .list-box{
       margin-left: 0;
       margin-top: 170px;
+      padding-bottom:170px;
     }
 
     .overlay img{
@@ -254,16 +255,13 @@
       top: 40px;
     }
     .list-box{
-      padding: 20px 5px;
+      padding: 20px 5px 160px;
+      margin-left: 0;
+      margin-top: 160px;
     }
     .left .content .header{
       height: 60px;
       width: 60px;
-    }
-
-    .list-box{
-      margin-left: 0;
-      margin-top: 160px;
     }
   }
 </style>
