@@ -154,10 +154,11 @@
     }
 
     .content{
-        background:rgba(255, 255, 255, 0.42);
+        background:rgba(255, 255, 255, 1);
         padding:10px;
         border-radius:10px;
         box-sizing:border-box;
+        text-align:left;
     }
 
     .info{

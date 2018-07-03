@@ -26,13 +26,14 @@
     <transition name="isShowContent">
       <div class="content" v-if="isShowContent" :class="[isShowContent?'isShowContent':'']">
         <div class="content-box">
-          <p>我是一尘，这是我的个人网站，里面有我的学习历程，有我的技术分享，也有毫无营养的闲聊扯淡，欢迎你的到来</p>
+          <HomeContent></HomeContent>
         </div>
       </div>
     </transition>
   </div>
 </template>
 <script>
+  import HomeContent from '../components.common/HomeContent';
   const Home = {
     data: function () {
       return {
@@ -80,6 +81,9 @@
       setTimeout(function () {
         self.showMore = true;
       }, 1100);
+    },
+    components:{
+      HomeContent
     }
   };
   export default Home;
