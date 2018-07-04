@@ -19,8 +19,8 @@ export default new Router({
     {
       path: '/blogList', component: BlogList,
       children: [
-        {path:'',component:BlogListBox},
-        {path:'blogDetailsBox/:id',component:BlogDetailsBox},
+        {path: '', component: BlogListBox},
+        {path: 'blogDetailsBox/:id', component: BlogDetailsBox},
       ]
     },
   ]

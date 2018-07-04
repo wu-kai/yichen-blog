@@ -1,62 +1,151 @@
-body,h1,h2,h3,h4,h5,h6,p,ul,li,ol{
+body, h1, h2, h3, h4, h5, h6, p, ul, li, ol {
   margin: 0;
 }
-html ,body{
+
+html, body {
   height: 100%;
 }
-a,a:hover,a:active,a:visited{
+
+a, a:hover, a:active, a:visited {
   text-decoration: none;
   color: #000;
 }
+
 body {
   min-height: 100%;
 }
-ul,li{
+
+ul, li {
   list-style: none;
 }
-button{
+
+button {
   color: #fff;
   font-size: 18px;
   border: none;
   cursor: pointer;
 }
 
-.blue50{color: #e3f2fd}
-.blue100{color: #bbdefb}
-.blue200{color: #90caf9}
-.blue300{color: #64b5f6}
-.blue400{color: #42a5f5}
-.blue500{color: #2196f3}
-.blue600{color: #1e88e5}
-.blue700{color: #1976d2}
-.blue800{color: #1565c0}
-.blue900{color: #0d47a1}
-.blueA100{color: #82b1ff}
-.blueA200{color: #448aff}
-.blueA400{color: #2979ff}
-.blueA700{color: #2962ff}
-.indigo50{color: #e8eaf6}
-.indigo100{color: #c5cae9}
-.indigo200{color: #9fa8da}
-.indigo300{color: #7986cb}
-.indigo400{color: #5c6bc0}
-.indigo500{color: #3f51b5}
-.indigo600{color: #3949ab}
-.indigo700{color: #303f9f}
-.indigo800{color: #283593}
-.indigo900{color: #1a237e}
-.indigoA100{color: #8c9eff}
-.indigoA200{color: #536dfe}
-.indigoA400{color: #3d5afe}
-.indigoA700{color: #304ffe}
+.blue50 {
+  color: #e3f2fd
+}
 
-.filter{
+.blue100 {
+  color: #bbdefb
+}
+
+.blue200 {
+  color: #90caf9
+}
+
+.blue300 {
+  color: #64b5f6
+}
+
+.blue400 {
+  color: #42a5f5
+}
+
+.blue500 {
+  color: #2196f3
+}
+
+.blue600 {
+  color: #1e88e5
+}
+
+.blue700 {
+  color: #1976d2
+}
+
+.blue800 {
+  color: #1565c0
+}
+
+.blue900 {
+  color: #0d47a1
+}
+
+.blueA100 {
+  color: #82b1ff
+}
+
+.blueA200 {
+  color: #448aff
+}
+
+.blueA400 {
+  color: #2979ff
+}
+
+.blueA700 {
+  color: #2962ff
+}
+
+.indigo50 {
+  color: #e8eaf6
+}
+
+.indigo100 {
+  color: #c5cae9
+}
+
+.indigo200 {
+  color: #9fa8da
+}
+
+.indigo300 {
+  color: #7986cb
+}
+
+.indigo400 {
+  color: #5c6bc0
+}
+
+.indigo500 {
+  color: #3f51b5
+}
+
+.indigo600 {
+  color: #3949ab
+}
+
+.indigo700 {
+  color: #303f9f
+}
+
+.indigo800 {
+  color: #283593
+}
+
+.indigo900 {
+  color: #1a237e
+}
+
+.indigoA100 {
+  color: #8c9eff
+}
+
+.indigoA200 {
+  color: #536dfe
+}
+
+.indigoA400 {
+  color: #3d5afe
+}
+
+.indigoA700 {
+  color: #304ffe
+}
+
+.filter {
   filter: blur(5px);
   -ms-filter: blur(5px);
   -webkit-filter: blur(5px);
   transition: all .2s ease;
 }
-.common_button{
+
+.common_button {
   padding: 0 70px;
   line-height: 36px;
   height: 36px;
@@ -67,49 +156,63 @@ button{
   border: none;
   cursor: pointer;
 }
-.common_button:hover{
+
+.common_button:hover {
   background: #3949ab;
 }
-.common_container{
+
+.common_container {
   max-width: 1200px;
   width: 80%;
   overflow: hidden;
   margin: 0 auto;
 }
-.clearF:after{
+
+.clearF:after {
   content: '';
   visibility: hidden;
   display: block;
   clear: both;
 }
-.showSocialistValues{
+
+.showSocialistValues {
   position: absolute;
   color: #3f51b5;
   animation: showSocialistValues 3.5s;
   opacity: 0
 }
+
 @keyframes showSocialistValues {
-  0%{opacity: 1;transform: translateY(0)}
+  0% {
+    opacity: 1;
+    transform: translateY(0)
+  }
   /*20%{opacity: 0.9;transform: translateY(10px)}*/
   /*40%{opacity: 0.7;transform: translateY(20px)}*/
   /*50%{opacity: 0.5;transform: translateY(30px)}*/
   /*80%{opacity: 0.2;transform: translateY(40px)}*/
-  100%{opacity: 0;transform: translateY(-50px)}
+  100% {
+    opacity: 0;
+    transform: translateY(-50px)
+  }
 }
-._arrow_down{
+
+._arrow_down {
   background: url('../images/arrow_down.png') no-repeat center;
   background-size: 100%;
 }
-._arrow_down:hover{
+
+._arrow_down:hover {
   cursor: pointer;
 }
-.mouseOverShowMessage{
+
+.mouseOverShowMessage {
   position: absolute;
   z-index: 9999;
   left: 0;
   top: 0;
   display: none;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   border: 1px solid #0f0f0f;
   border-radius: 4px;
