@@ -212,5 +212,15 @@
     .blogDetails-enter-active{
         transition:all 0.7s;
     }
-    .blogDetails-enter-to{}
+    .blogDetails-leave-to{}
+    .blogDetails-enter{
+
+    }
+    .blogDetails-leave-active{
+      transition:all 0.7s;
+    }
+    .blogDetails-leave-to{
+      transform:translateX(100px);
+      opacity:0;
+    }
 </style>
