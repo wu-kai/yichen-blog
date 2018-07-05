@@ -12,7 +12,11 @@
     "express": "^4.16.3"
   },
   "dependencies": {
+    "async": "^2.6.1",
     "mongoose": "~4.4.20",
-    "ueditor": "^1.2.3"
+    "node-cache": "^4.2.0",
+    "sha1": "^1.1.1",
+    "ueditor": "^1.2.3",
+    "wechat-jssdk": "^3.1.3"
   }
 }
