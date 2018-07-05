@@ -69,6 +69,7 @@ app.use('/build',express.static(path.normalize(__dirname+'/../build')));
 app.use('/libStatic',express.static(path.normalize(__dirname+'/lib')));
 app.use('/ueditor',express.static(path.normalize(__dirname+'/images/ueditor')));
 app.use('/static',express.static(path.normalize(__dirname+'/dist/static')));
+app.use('/',express.static(path.normalize(__dirname+'/')));
 
 function checkSignature(params,token){
 	var key=[token,params.timestamp,params.nonce].sort().join('');
@@ -79,38 +80,6 @@ function checkSignature(params,token){
 	return sha1.digest('hex') ==params.signature;
 	//将加密后的字符串与signature进行对比，若成功，返回echostr
 }
-
-// app.get('/wxJssdk/getJssdk', (req, res) => {
-//
-// 	const grant_type = 'client_credential';
-// 	const appid = 'wx12266588c2a4fbe3';
-// 	const secret = '1b8e29a105a9934a77a32aeb9ecc39fd';
-//
-// 	request('https://api.weixin.qq.com/cgi-bin/token?grant_type=' + grant_type + '&appid=' + appid + '&secret=' + secret, (err, response, body) => {
-// 		let access_toekn = JSON.parse(body).access_token;
-//
-// 		request('https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=' + access_token + '&type=jsapi', (err, response, body) => {
-// 			let jsapi_ticket = JSON.parse(body).ticket;
-// 			let nonce_str = '123456';    // 密钥，字符串任意，可以随机生成
-// 			let timestamp = new Date().getTime();  // 时间戳
-// 			let url = req.query.url;   // 使用接口的url链接，不包含#后的内容
-//
-// 			// 将请求以上字符串，先按字典排序，再以'&'拼接，如下：其中j > n > t > u，此处直接手动排序
-// 			let str = 'jsapi_ticket=' + jsapi_ticket + '&noncestr=' + nonce_str + '&timestamp=' + timestamp + '&url=' + url;
-//
-// 			// 用sha1加密
-// 			let signature = sha1(str);
-//
-// 			res.send({
-// 				appId: appid,
-// 				timestamp: timpstamp,
-// 				nonceStr: nonce_str,
-// 				signature: signature,
-// 			})
-// 		})
-// 	})
-// });
-
 
 app.get('/wxJssdk/getJssdk', (req, res) => {
 	let grant_type = 'client_credential';
@@ -218,13 +187,17 @@ app.get('/wxJssdk/getJssdk', (req, res) => {
 
 	// 第三步，生成签名
 	steps.push((ticket, cb) => {
+
 		let jsapi_ticket = ticket
 		let nonce_str = '123456'
 		let timestamp = new Date().getTime()
-		let url = req.query.url
+		let url = decodeURIComponent(req.query.url)
 
 		let str = 'jsapi_ticket=' + jsapi_ticket + '&noncestr=' + nonce_str + '&timestamp=' + timestamp + '&url=' + url
 		let signature = sha1(str)
+
+		console.log(str);
+		console.log(signature);
 
 		cb(null, {
 			appId: appid,
