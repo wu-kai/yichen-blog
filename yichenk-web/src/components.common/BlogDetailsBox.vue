@@ -187,7 +187,7 @@
         background:#477198;
     }
 
-    .switch .edit button.button.is-danger{
+    .switch .button.is-danger{
         width:100px;
         background-color: #f56954;
     }
@@ -223,4 +223,10 @@
       transform:translateX(100px);
       opacity:0;
     }
+
+  @media screen and (max-width:450px) {
+    .switch .edit button.button{
+      width:50px;
+    }
+  }
 </style>

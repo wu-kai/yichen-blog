@@ -9,9 +9,7 @@
     </div>
     <div class="item-foot">
       <div class="item-labels">
-        <span v-for="label in labels" class="item-label">
-          <tag type="info" rounded v-text="label"></tag>
-        </span>
+          <tag type="info" rounded v-text="label" v-for="label in labels" class="item-label" :key="label"></tag>
       </div>
       <div class="readAll" @click="goDetails()"><tag type="primary">阅读全文 >></tag></div>
     </div>
@@ -145,9 +143,10 @@
   }
   .item-foot .item-label{
     font-weight: 500;
-    color: #858585;
+    color: #ffffff;
     font-family: Broadway;
     margin-right: 10px;
+    margin-top: 5px;
   }
   .item-foot .readAll{
     float: right;
