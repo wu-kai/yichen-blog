@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./common/db');
 const demoRouter = require('./api/demo.router');
 const blogRouter = require('./api/blog.router');
+const commentRouter = require('./api/comment.router');
 const ueditor = require('ueditor');
 const wx = require('wechat-jssdk');
 const request = require('request');
@@ -244,6 +245,7 @@ app.all('/',function(req,res){
 
 app.use('/api/demo',demoRouter);
 app.use('/api/blog',blogRouter);
+app.use('/api/comment',commentRouter);
 app.use('/api',function(req,res){
 	res.send('这里什么都没有');
 });
