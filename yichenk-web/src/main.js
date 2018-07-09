@@ -28,7 +28,7 @@ const wxShare = {
   link: 'yichenk.com',
   imgUrl: 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg'
 };
-if (wx) {
+if (false) {
   axios({
     method: 'GET',
     url: '/wxJssdk/getJssdk',

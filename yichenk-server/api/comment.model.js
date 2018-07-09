@@ -5,7 +5,8 @@ var commentSchema = new Schema({
 	email:String,
 	name:String,
 	comment:String,
-	address:String,
+	province:String,
+	city:String
 },{
 	timestamps: true
 });

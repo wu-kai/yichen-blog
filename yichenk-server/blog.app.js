@@ -197,9 +197,6 @@ app.get('/wxJssdk/getJssdk', (req, res) => {
 		let str = 'jsapi_ticket=' + jsapi_ticket + '&noncestr=' + nonce_str + '&timestamp=' + timestamp + '&url=' + url
 		let signature = sha1(str)
 
-		console.log(str);
-		console.log(signature);
-
 		cb(null, {
 			appId: appid,
 			timestamp: timestamp,
@@ -216,23 +213,6 @@ app.get('/wxJssdk/getJssdk', (req, res) => {
 			res.send({status: 'success', data: data})
 		}
 	})
-});
-
-app.get('/getToken',function(req,res){
-	var query=require('url').parse(req.url).query;
-	var params=qs.parse(query);
-
-	console.log(params);
-
-	if(!checkSignature(params,TOKEN)){
-		//如果签名不对，结束请求并返回
-		res.end('signature fail');
-	}else{
-		if (req.method == "GET") {
-			//如果请求是GET，返回echostr用于通过服务器有效校验
-			res.end(params.echostr);
-		}
-	}
 });
 
 app.all('/',function(req,res){
