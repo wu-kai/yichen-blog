@@ -22,7 +22,8 @@ instance.create = function(data,callback){
 };
 
 instance.findAll = function(callback){
-	comment.find({},callback).sort({'updated':-1,'created':-1,'createTime':-1})
+	var showKeys = {name:'',comment:'',city:'',createdAt:''};
+	comment.find({},showKeys,callback).sort({'updated':-1,'created':-1,'createTime':-1})
 };
 
 exports.comment = instance;
