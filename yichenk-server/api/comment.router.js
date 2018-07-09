@@ -12,20 +12,12 @@ function getClientIp(req) {
 };
 
 router.post('/createComment',function(req,res){
-	var data = req.body;
-	var ipStr = getClientIp(req);
-	var arr = ipStr.split(':');
-	var ip = arr[arr.length-1];
-	var apiPath = 'http://api.map.baidu.com/location/ip?ip='+ip+'&ak=Q8TuGc4hjSnH9hBKUzZGS8qtWqM4Simh&coor=bd09ll';
-	request(apiPath,(err, response, body) => {
-		var content = JSON.parse(body).content.address_detail;
-		var province = content.province;
-		var city = content.city;
-		if(city.substr(city.length-1,1) === '市'){
-			city = city.substr(0,city.length-1)
-		}
-		data.city = city;
-		data.province = province;
+	let data = req.body;
+	let ipStr = getClientIp(req);
+	let arr = ipStr.split(':');
+	let ip = arr[arr.length-1];
+	if(ip === 1 || ip === '1'){
+		data.city = '天上';
 		comment.create(data,function(err,result){
 			if(err){
 				res.json(err);
@@ -33,7 +25,26 @@ router.post('/createComment',function(req,res){
 				res.json({status:'success',data:result})
 			}
 		})
-	});
+	}else{
+		let apiPath = 'http://api.map.baidu.com/location/ip?ip='+ip+'&ak=Q8TuGc4hjSnH9hBKUzZGS8qtWqM4Simh&coor=bd09ll';
+		request(apiPath,(err, response, body) => {
+			let content = JSON.parse(body).content.address_detail;
+			let province = content.province;
+			let city = content.city;
+			if(city.substr(city.length-1,1) === '市'){
+				city = city.substr(0,city.length-1)
+			}
+			data.city = city;
+			data.province = province;
+			comment.create(data,function(err,result){
+				if(err){
+					res.json(err);
+				}else{
+					res.json({status:'success',data:result})
+				}
+			})
+		});
+	}
 });
 
 router.get('/findAll',function(req,res){
