@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import testModule from './test.module.js';
 import blogModule from './blog.module.js';
+import messageModule from './message.module.js';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     menuList:[
       {name:'home',value:'Home',path:'/'},
       {name:'blogList',value:'BlogList',path:'/blogList'},
-      {name:'resume',value:'Resume',path:'/resume'}
+      {name:'resume',value:'Resume',path:'/resume'},
+      {name:'messageBoard',value:'MessageBoard',path:'/messageBoard'}
     ],
     musicList:[
       'http://p9kmzrcfb.bkt.clouddn.com/music/Imagine%20Dragons-Radioactive.mp3',
@@ -33,7 +35,8 @@ const store = new Vuex.Store({
   },
   modules:{
     test:testModule,
-    blog:blogModule
+    blog:blogModule,
+    message:messageModule
   }
 });
 

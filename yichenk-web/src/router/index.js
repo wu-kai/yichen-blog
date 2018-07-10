@@ -4,6 +4,7 @@ import Manage from '@/components/Manage'
 import Home from '@/components/Home'
 import BlogList from '@/components/BlogList'
 import Resume from '@/components/Resume'
+import MessageBoard from '@/components/MessageBoard'
 import BlogListBox from '@/components.common/BlogListBox'
 import BlogDetailsBox from '@/components.common/BlogDetailsBox'
 
@@ -16,6 +17,7 @@ export default new Router({
     {path: '/manage/:id', name: 'manage', component: Manage},
     {path: '/manage', name: 'manage_', component: Manage},
     {path: '/resume', name: 'resume', component: Resume},
+    {path: '/messageBoard', name: 'messageBoard', component: MessageBoard},
     {
       path: '/blogList', component: BlogList,
       children: [

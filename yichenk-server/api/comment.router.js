@@ -16,7 +16,7 @@ router.post('/createComment',function(req,res){
 	let ipStr = getClientIp(req);
 	let arr = ipStr.split(':');
 	let ip = arr[arr.length-1];
-	if(ip === 1 || ip === '1'){
+	if(ip === 1 || ip === '1' || ip === '127.0.0.1'){
 		data.city = '天上';
 		comment.create(data,function(err,result){
 			if(err){
