@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div class="head">
-      <span class="name" v-text="item.name"></span>
+      <span class="name" v-text="item.name || '匿名'"></span>
       <span class="time" v-text="time"></span>
       <span class="city" v-text="item.city?'在'+item.city+'说':'说'"></span>
     </div>
