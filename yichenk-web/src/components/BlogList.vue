@@ -1,6 +1,6 @@
 <template>
   <div class="blog-list-box">
-    <audio id="music" :src="musicList[0]" loop autoplay></audio>
+    <audio id="music" :src="musicList[0]" autoplay></audio>
     <div class="left">
       <div class="content">
         <div class="overlay">
@@ -51,11 +51,14 @@
       },
       changeMusic(){
         clearTimeout(this.timer);
+        let self = this;
         let max = this.musicList.length;
         let index = Math.ceil(Math.random()*max);
         index = index === 0?index:index-1;
-        this.musicEl[0].src = this.musicList[index];
-        this.musicEl[0].play();
+        this.timer = setTimeout(function(){
+          self.musicEl[0].src = self.musicList[index];
+          self.musicEl[0].play();
+        },150);
       }
     },
     computed:{
@@ -74,7 +77,11 @@
       self.showHead = true;
       this.musicEl = $('#music');
       this.musicEl[0].volume = 0.05;
+      this.musicEl[0].load();
       this.musicEl[0].play();
+      this.musicEl.on('ended',function(){
+        self.changeMusic();
+      })
     },
     components:{
       BlogListBox
