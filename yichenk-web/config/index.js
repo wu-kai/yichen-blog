@@ -17,7 +17,8 @@ module.exports = {
         target:'http://localhost:3000/',
         host: 'localhost:3000',
         secure: false,
-      }
+      },
+      '/wxJssdk/getJssdk':'http://localhost:3000'
     },
 
     // Various Dev Server settings
