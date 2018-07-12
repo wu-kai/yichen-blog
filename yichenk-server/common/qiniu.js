@@ -68,24 +68,29 @@ function getQiNiu(callback) {
 }
 
 //上传文件
-function uploadFile(callback) {
+function uploadFile(files,callback) {
+	console.log(files);
 	//要上传的空间
 	let bucket = 'yichenk';
 	//上传到七牛后保存的文件名
-	let key = 'my-nodejs-logo.png';
+	let key = file.name;
 
 	//构建上传策略函数，设置回调的url以及需要回调给业务服务器的数据
 	function uptoken(bucket, key) {
-		var putPolicy = new qiniu.rs.PutPolicy(bucket + ":" + key);
-		putPolicy.callbackUrl = 'http://your.domain.com/callback';
-		putPolicy.callbackBody = 'filename=$(fname)&filesize=$(fsize)';
+		var options = {
+			scope: bucket,
+			expires: 7200
+		};
+		var putPolicy = new qiniu.rs.PutPolicy(options);
+		// putPolicy.callbackUrl = 'http://your.domain.com/callback';
+		// putPolicy.callbackBody = 'filename=$(fname)&filesize=$(fsize)';
 		return putPolicy.token();
 	}
 
 	//生成上传 Token
 	let token = uptoken(bucket, key);
 	//要上传文件的本地路径
-	let filePath = './nodejs-logo.png'
+	let filePath = file.url;
 
 	//构造上传函数
 	function uploadFile(uptoken, key, localFile) {

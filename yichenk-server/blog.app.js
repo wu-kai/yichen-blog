@@ -67,8 +67,11 @@ qiniu.getQiNiu(function(d){
 app.get('/wxJssdk/getJssdk', (req, res) => {
 	weixin.getWeiXin(req, res)
 });
-app.post('/uploadFile_to_qiniu',(req,res) => {
+app.post('/api/uploadFile_to_qiniu',(req,res) => {
 	console.log(req.body);
+	qiniu.uploadFile(req.body,function(data){
+		console.log(data);
+	});
 	res.json({'status':'success'})
 });
 

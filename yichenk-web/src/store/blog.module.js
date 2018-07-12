@@ -110,6 +110,13 @@ const actions = {
         console.log(err);
       })
     })
+  },
+  uploadFile(context,data){
+    return axios({
+      method:'post',
+      url:'/api/uploadFile_to_qiniu',
+      data:data
+    });
   }
 
 };

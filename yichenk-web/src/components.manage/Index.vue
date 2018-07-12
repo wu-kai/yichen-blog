@@ -23,8 +23,7 @@
       }
     },
     methods:{
-      selectImg(e){
-        console.dir(e.srcElement.files);
+      getShowImgUrl(e){
         var url = null ;
         if (window.createObjectURL!==undefined) { // basic
           url = window.createObjectURL(e.srcElement.files[0]) ;
@@ -34,6 +33,12 @@
           url = window.webkitURL.createObjectURL(e.srcElement.files[0]) ;
         }
         this.imgUrlList.push(url);
+      },
+      selectImg(e){
+        console.dir(e.target);
+        console.log(e.srcElement.files);
+        this.getShowImgUrl(e);
+        this.$store.dispatch('uploadFile',{files:e.srcElement.files[0]})
       }
     }
 	}
