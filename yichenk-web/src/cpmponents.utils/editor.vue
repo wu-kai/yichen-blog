@@ -31,7 +31,9 @@
         UEDITOR_HOME_URL: '/static/lib/ueditor-utf8-php/'
       });
       self.editor.addListener("ready", function () {
-        self.editor.setContent(self.content || '');
+        setTimeout(function() {
+          self.editor.setContent(self.content || '');
+        },50);
       });
       self.editor.addListener('contentChange', function () {
         self.$store.commit('saveTempBlogContent', self.editor.getContent());
