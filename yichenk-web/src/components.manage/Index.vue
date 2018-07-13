@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <div>欢迎进入管理页面</div>
     <div class="upload">
       上传文件:
@@ -10,6 +10,10 @@
         </div>
       </div>
     </div>
+    <form method="post" action="/api/uploadFile_to_qiniu" enctype="multipart/form-data">
+      <p><input type="file" name="file" value="" @change="getShowImgUrl"></p>
+      <p><input type="submit" value="提交"></p>
+    </form>
   </div>
 </template>
 
@@ -37,14 +41,17 @@
       selectImg(e){
         console.dir(e.target);
         console.log(e.srcElement.files);
-        this.getShowImgUrl(e);
-        this.$store.dispatch('uploadFile',{files:e.srcElement.files[0]})
+//        this.getShowImgUrl(e);
+//        this.$store.dispatch('uploadFile',{files:e.srcElement.files[0]})
       }
     }
 	}
 </script>
 
 <style scoped>
+  .index{
+    text-align: left;
+  }
 .upload{
   float: left;
 }

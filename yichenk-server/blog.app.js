@@ -6,6 +6,8 @@ const demoRouter = require('./api/demo.router');
 const blogRouter = require('./api/blog.router');
 const commentRouter = require('./api/comment.router');
 const ueditor = require('ueditor');
+const formidable = require( 'formidable' );
+const form = new formidable.IncomingForm();
 
 const qiniu = require('./common/qiniu');
 const weixin = require('./common/weixin');
@@ -68,11 +70,11 @@ app.get('/wxJssdk/getJssdk', (req, res) => {
 	weixin.getWeiXin(req, res)
 });
 app.post('/api/uploadFile_to_qiniu',(req,res) => {
-	console.log(req.body);
-	qiniu.uploadFile(req.body,function(data){
-		console.log(data);
+	form.parse( req, ( err, fields, files ) => {
+		qiniu.uploadFile(files.file);
+		res.json({'status':'success'});
 	});
-	res.json({'status':'success'})
+	// res.json({'status':'success'})
 });
 
 app.all('/',function(req,res){

@@ -73,7 +73,7 @@ function uploadFile(files,callback) {
 	//要上传的空间
 	let bucket = 'yichenk';
 	//上传到七牛后保存的文件名
-	let key = file.name;
+	let key = files.name;
 
 	//构建上传策略函数，设置回调的url以及需要回调给业务服务器的数据
 	function uptoken(bucket, key) {
@@ -90,7 +90,7 @@ function uploadFile(files,callback) {
 	//生成上传 Token
 	let token = uptoken(bucket, key);
 	//要上传文件的本地路径
-	let filePath = file.url;
+	let filePath = files.url;
 
 	//构造上传函数
 	function uploadFile(uptoken, key, localFile) {
