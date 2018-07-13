@@ -68,47 +68,32 @@ function getQiNiu(callback) {
 }
 
 //上传文件
-function uploadFile(files,callback) {
+function uploadFile(readableStream,files,callback) {
 	console.log(files);
 	//要上传的空间
 	let bucket = 'yichenk';
 	//上传到七牛后保存的文件名
 	let key = files.name;
 
-	//构建上传策略函数，设置回调的url以及需要回调给业务服务器的数据
-	function uptoken(bucket, key) {
-		var options = {
-			scope: bucket,
-			expires: 7200
-		};
-		var putPolicy = new qiniu.rs.PutPolicy(options);
-		// putPolicy.callbackUrl = 'http://your.domain.com/callback';
-		// putPolicy.callbackBody = 'filename=$(fname)&filesize=$(fsize)';
-		return putPolicy.token();
-	}
+	var config = new qiniu.conf.Config();
+	var formUploader = new qiniu.form_up.FormUploader(config);
+	var putExtra = new qiniu.form_up.PutExtra();
 
-	//生成上传 Token
-	let token = uptoken(bucket, key);
-	//要上传文件的本地路径
-	let filePath = files.url;
+	getQiNiu(function(access_token){
 
-	//构造上传函数
-	function uploadFile(uptoken, key, localFile) {
-		let extra = new qiniu.io.PutExtra();
-		qiniu.io.putFile(uptoken, key, localFile, extra, function (err, ret) {
-			if (!err) {
-				// 上传成功， 处理返回值
-				callback();
-				console.log(ret.hash, ret.key, ret.persistentId);
+		formUploader.putStream(access_token, key, readableStream, putExtra, function(respErr, respBody, respInfo) {
+			if (respErr) {
+				throw respErr;
+			}
+			if (respInfo.statusCode == 200) {
+				console.log(respBody);
 			} else {
-				// 上传失败， 处理返回代码
-				console.log(err);
+				console.log(respInfo.statusCode);
+				console.log(respBody);
 			}
 		});
-	}
+	})
 
-	//调用uploadFile上传
-	uploadFile(token, key, filePath);
 }
 
 module.exports = {

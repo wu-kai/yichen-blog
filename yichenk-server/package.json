@@ -9,12 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "connect-multiparty": "^2.1.1",
     "express": "^4.16.3",
     "formidable": "^1.2.1"
   },
   "dependencies": {
     "async": "^2.6.1",
     "mongoose": "~4.4.20",
+    "multiparty": "^4.1.4",
     "node-cache": "^4.2.0",
     "qiniu": "^7.2.1",
     "sha1": "^1.1.1",

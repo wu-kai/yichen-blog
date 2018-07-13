@@ -6,8 +6,12 @@ const demoRouter = require('./api/demo.router');
 const blogRouter = require('./api/blog.router');
 const commentRouter = require('./api/comment.router');
 const ueditor = require('ueditor');
-const formidable = require( 'formidable' );
-const form = new formidable.IncomingForm();
+const multipart = require('connect-multiparty');
+const multiparty = require('multiparty');
+const util = require('util');
+const fs = require('fs');
+
+var multipartMiddleware = multipart();
 
 const qiniu = require('./common/qiniu');
 const weixin = require('./common/weixin');
@@ -66,15 +70,44 @@ qiniu.getQiNiu(function(d){
 	console.log('d',d);
 });
 
+app.use(express.urlencoded());
+app.use(express.json());
+
 app.get('/wxJssdk/getJssdk', (req, res) => {
 	weixin.getWeiXin(req, res)
 });
-app.post('/api/uploadFile_to_qiniu',(req,res) => {
-	form.parse( req, ( err, fields, files ) => {
-		qiniu.uploadFile(files.file);
-		res.json({'status':'success'});
-	});
-	// res.json({'status':'success'})
+app.post('/api/uploadFile_to_qiniu',multipartMiddleware,(req,res) => {
+	/* 生成multiparty对象，并配置上传目标路径 */
+	let form = new multiparty.IncomingForm();
+	/* 设置编辑 */
+	// form.encoding = 'utf-8';
+	//设置文件存储路劲
+	form.uploadDir = './test/files';
+	//设置文件大小限制
+	form.maxFilesSize = 2 * 1024 * 1024;
+	form.parse(req, function(err, fields, files) {
+		let filesTemp = JSON.stringify(files, null, 2);
+
+		if(err) {
+			console.log('parse error:' + err);
+		}else {
+			console.log('parse files:' + filesTemp);
+			let inputFile = files.inputFile[0];
+			let uploadedPath = inputFile.path;
+			let dstPath = './test/files' + inputFile.originalFilename;
+			//重命名为真实文件名
+			fs.rename(uploadedPath, dstPath, function(err) {
+				if(err) {
+					console.log('rename error:' + err);
+				}else {
+					console.log('rename ok');
+				}
+			})
+		}
+		res.writeHead(200, {'content-type': 'text/plain;charset=utf-8'});
+		res.write('received upload:\n\n');
+		res.end(util.inspect({fields: fields, files: filesTemp}))
+	})
 });
 
 app.all('/',function(req,res){
