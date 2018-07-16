@@ -42,42 +42,25 @@
     color: #dfdfdf;
   }
 
-  @-webkit-keyframes opac {
-    from {
-      opacity: 1;
-      width: 10px;
-      height: 10px;
-      top: calc(50% - 5px);
-      left: calc(50% - 5px);
-    }
-    to {
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-    }
-  }
-
   .w1, .w2, .w3 {
     visibility: hidden;
   }
 
   .animate .w1 {
     visibility: visible;
-    -webkit-animation: opac 1.3s infinite;
+    animation: opac 1.3s infinite;
   }
 
   .animate .w2 {
     visibility: visible;
-    -webkit-animation: opac 1.3s infinite;
-    -webkit-animation-delay: .2s;
+    animation: opac 1.3s infinite;
+    animation-delay: .2s;
   }
 
   .animate .w3 {
     visibility: visible;
-    -webkit-animation: opac 1.3s infinite;
-    -webkit-animation-delay: .4s;
+    animation: opac 1.3s infinite;
+    animation-delay: .4s;
   }
 
   .wave {

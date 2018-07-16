@@ -221,3 +221,19 @@ button {
   font-family: 微软雅黑;
   padding: 5px 6px;
 }
+@keyframes opac {
+  from {
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+  }
+  to {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
