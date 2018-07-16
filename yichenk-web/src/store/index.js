@@ -11,10 +11,10 @@ const store = new Vuex.Store({
     homeTitle:'Better Yichen',
     menuShow:false,
     menuList:[
-      {name:'home',value:'Home',path:'/'},
-      {name:'blogList',value:'BlogList',path:'/blogList'},
-      {name:'resume',value:'Resume',path:'/resume'},
-      {name:'messageBoard',value:'MessageBoard',path:'/messageBoard'}
+      {name:'home',value:'Home',path:'/',showName:'首页'},
+      {name:'blogList',value:'BlogList',path:'/blogList',showName:'博客'},
+      {name:'resume',value:'Resume',path:'/resume',showName:'简历'},
+      {name:'messageBoard',value:'MessageBoard',path:'/messageBoard',showName:'留言板'}
     ],
     musicList:[
       'http://p9kmzrcfb.bkt.clouddn.com/music/Imagine%20Dragons-Radioactive.mp3',

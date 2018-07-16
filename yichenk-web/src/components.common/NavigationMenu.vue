@@ -2,7 +2,7 @@
   <div class="menu">
     <ul>
       <li v-for="menu in list"
-          :key="menu.value" v-text="menu.value"
+          :key="menu.value" v-text="menu.showName"
           @click="to(menu)">
       </li>
     </ul>
@@ -43,16 +43,17 @@
   }
   li:hover{
     cursor: pointer;
-    color: #1e88e5;
+    color: #fff;
+    background: #42a5f5;
   }
   ul{
     width: 100%;
     max-width: 500px;
     margin: 150px auto 0;
-    font-size: 40px;
+    font-size: 26px;
   }
   li{
-    line-height: 80px;
+    line-height: 60px;
     text-align: center;
     color: #42a5f5;
   }
