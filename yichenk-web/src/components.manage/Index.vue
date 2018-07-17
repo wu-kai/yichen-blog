@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import util from '../util';
+  import util from '../js/util';
 	export default {
 		name: '',
     data:function(){
@@ -41,10 +41,8 @@
       selectImg(e){
         console.dir(e.target);
         console.log(e.srcElement.files);
-//        this.getShowImgUrl(e);
-//        this.$store.dispatch('uploadFile',{files:e.srcElement.files[0]})
       }
-    }
+    },
 	}
 </script>
 
