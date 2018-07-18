@@ -4,7 +4,9 @@
   "description": "",
   "main": "blog.app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"set NODE_ENV=development&&node blog.app.js",
+    "pro":"set NODE_ENV=production&&node blog.app.js"
   },
   "author": "",
   "license": "ISC",

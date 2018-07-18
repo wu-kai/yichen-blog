@@ -13,7 +13,7 @@
                 <p v-html="blog.body"></p>
             </div>
             <div class="item-labels">
-            <span v-for="label in labels" class="item-label">
+            <span v-for="label in labels" class="item-label" :key="label">
                 <tag type="info" rounded v-text="label"></tag>
             </span>
             </div>
