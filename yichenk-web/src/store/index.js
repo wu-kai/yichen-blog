@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     menuList:[
       {name:'home',value:'Home',path:'/',showName:'首页'},
       {name:'blogList',value:'BlogList',path:'/blogList',showName:'博客'},
-      {name:'resume',value:'Resume',path:'/resume',showName:'简历'},
+      {name:'resume',value:'Resume',path:'/resume',showName:'个人简历'},
       {name:'messageBoard',value:'MessageBoard',path:'/messageBoard',showName:'留言板'}
     ],
     musicList:[
