@@ -29,8 +29,7 @@ const Schema = mongoose.Schema;
 const blogSchema = new Schema({
 	name:String,
 	age:Number,
-	timestamps: true
-});
+},{timestamps: true});
 blogSchema.add({
 	color:String
 });
@@ -40,6 +39,12 @@ var blog = mongoose.model('blog', blogSchema);
 
 
 const app = express();
+
+app.use('/api',function(req,res){
+	res.json({
+		"test":"success"
+	});
+});
 
 app.listen(8000,function(){
 	console.error('> Web server listen 8000......');

@@ -25,7 +25,7 @@ const webIndex = !isPro?'./dist/index.html':'./build/index.html';
 //因为莫名其妙的请求路径是这样，所以只能进行适配
 const uploadPath = isPro?'/static/js/libStatic/ueditor-utf8-php/ue':'/libStatic/ueditor-utf8-php/ue';
 //本地运行用3000端口，线上环境用80端口
-const port = isPro?80:3000;
+const port = 3000;
 
 db.connect();
 
