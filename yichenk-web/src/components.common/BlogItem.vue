@@ -70,7 +70,7 @@
     position: relative;
     z-index: 999;
     /*border-bottom: 1px dashed #c4c4c4;*/
-    transition: all 0.5s;
+    /*transition: all 0.5s;*/
     box-shadow: 0 0 13px -1px #6f6f6f;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;

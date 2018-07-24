@@ -5,7 +5,9 @@
                           @before-enter="beforeEnter"
                           @enter="enter"
                           tag="div">
-          <BlogItem v-for="(blog,index) in list" class="item"
+          <BlogItem v-for="(blog,index) in list"
+                    class="item"
+                    v-lazyLoadList = "scrollTop"
                     v-if="showList"
                     :blog="blog"
                     :data-index="index"
@@ -22,7 +24,8 @@
     name: 'BlogListBox',
     data:function(){
       return {
-        showList:false
+        showList:false,
+        scrollTop:0
       }
     },
     computed:{
@@ -33,12 +36,24 @@
         return this.$store.state.musicList;
       }
     },
+    watch:{
+//      scrollTop(val){
+//        console.log(val);
+//      }
+    },
     components:{
       BlogItem
     },
     mounted(){
       let self = this;
       self.showList = true;
+      $('.list-box').scroll(function(){
+        self.scrollTop = $('.list-box').scrollTop();
+      });
+
+      $('.item').css({
+        transition: 'translateX('+1500+'px)'
+      })
     },
     methods:{
       beforeEnter: function (el) {
@@ -58,13 +73,12 @@
         }, delay);
       },
     }
-
   }
 </script>
 
 <style scoped>
   .item{
-    transform: translateX(170px);
+    transform: translateX(270px);
     transition: all 1.2s;
   }
   .item.move{
