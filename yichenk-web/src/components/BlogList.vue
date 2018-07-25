@@ -76,7 +76,7 @@
       });
       self.showHead = true;
       this.musicEl = $('#music');
-      this.musicEl[0].volume = 0.05;
+      this.musicEl[0].volume = 0.013;
       this.musicEl[0].load();
       this.musicEl[0].play();
       this.musicEl.on('ended',function(){

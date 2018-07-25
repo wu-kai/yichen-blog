@@ -36,11 +36,6 @@
         return this.$store.state.musicList;
       }
     },
-    watch:{
-//      scrollTop(val){
-//        console.log(val);
-//      }
-    },
     components:{
       BlogItem
     },
@@ -50,10 +45,6 @@
       $('.list-box').scroll(function(){
         self.scrollTop = $('.list-box').scrollTop();
       });
-
-      $('.item').css({
-        transition: 'translateX('+1500+'px)'
-      })
     },
     methods:{
       beforeEnter: function (el) {
@@ -78,7 +69,7 @@
 
 <style scoped>
   .item{
-    transform: translateX(270px);
+    transform: translateX(700px);
     transition: all 1.2s;
   }
   .item.move{

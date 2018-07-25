@@ -70,47 +70,40 @@ Vue.directive('lazyLoadList', {
   bind(el, binding){
 
   },
-  // inserted(el, binding) {
-  //   let elTop = $(el).offset().top;
-  //   let scrollTop = binding.value;
-  //   let windowHeight = $(window).height();
-  //   if (scrollTop + windowHeight < elTop) {
-  //     $(el).css({
-  //       visibility: 'hidden',
-  //       transform: 'translateX('+$(el).width()+'px)'
-  //     });
-  //     $(el).removeClass('move');
-  //   }
-	//
-  // },
-  // update(el, binding) {
-  //   let elTop = $(el).offset().top;
-  //   let scrollTop = binding.value;
-  //   let windowHeight = $(window).height();
-  //   let isHide = $(el).css('visibility') === 'hidden';
-  //   if (isHide) {
-  //     $(el).removeClass('move');
-  //   }
-  //   if (windowHeight - 40 >= elTop && isHide) {
-  //     $(el).css({
-  //       transition:'translateX(670px)'
-  //     });
-  //     $(el).css({
-  //       visibility: 'visible',
-  //       transition:'translateX(0px)'
-  //     });
-      // el.style.opacity = 0;
-      // el.style.transform = 0;
-      // setTimeout(function () {
-      //   function move(){
-      //     $(el).addClass('move');
-      //   }
-      //   console.log($(el).width());
-      //   $(el).animate(
-      //     { opacity: 1,translateX: $(el).width()},
-      //     { complete: move}
-      //   );
-      // }, 100);
-    // }
-  // }
+  inserted(el, binding) {
+    let elTop = $(el).offset().top;
+    let scrollTop = binding.value;
+    let windowHeight = $(window).height();
+    if (scrollTop + windowHeight < elTop) {
+      $(el).css({
+        visibility: 'hidden',
+      });
+      $(el).removeClass('move');
+    }
+
+  },
+  update(el, binding) {
+    let elTop = $(el).offset().top;
+    let scrollTop = binding.value;
+    let windowHeight = $(window).height();
+    let isHide = $(el).css('visibility') === 'hidden';
+    if (isHide) {
+      $(el).removeClass('move');
+    }
+    if (windowHeight - 40 >= elTop && isHide && !$(el).hasClass('move')) {
+      setTimeout(function(){
+          $(el).addClass('move');
+          $(el).css({
+            visibility: 'visible',
+          });
+          function move(){
+            $(el).addClass('move');
+          }
+          $(el).animate(
+            { opacity: 1},
+            { complete: move}
+          );
+        },200)
+    }
+  }
 });
