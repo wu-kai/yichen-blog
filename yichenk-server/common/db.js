@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 
 var database = config.mongodb.db;
 var port = config.mongodb.port;
+var userID = config.mongodb.user;
+var password = config.mongodb.password;
 var path = 'mongodb://'+config.mongodb.host+'/'+database;
 
 //创建客户端连接对象
@@ -10,7 +12,10 @@ var path = 'mongodb://'+config.mongodb.host+'/'+database;
 function create_connection(){
 
 	//连接到mongodb的某个数据库，拿到连接后返回的对象，并监听连接结果，打印信息
-	var connection = mongoose.connect(path).connection;
+	var connection = mongoose.connect(path,{
+		user:userID,
+		pass:password
+	}).connection;
 
 	connection.on('connected', function () {
 		console.log("on mongodb connect connected. the connection.readyState is [" +
