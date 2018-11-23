@@ -57,7 +57,7 @@
     },
     methods:{
       getImgPath(i){
-        return 'http://p9kmzrcfb.bkt.clouddn.com/pic'+i+'.jpg';
+        return 'http://cdn.yichenk.com/pic'+i+'.jpg';
       },
       getImgPathList(){
         let start = this.currentIndex*4 - 3;

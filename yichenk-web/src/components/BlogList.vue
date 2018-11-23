@@ -95,7 +95,7 @@
   }
   .blog-list-box {
     height: 100%;
-    background: url('http://p9kmzrcfb.bkt.clouddn.com/list_bg2.jpg');
+    background: url('http://cdn.yichenk.com/list_bg2.jpg');
     background-size: cover;
     position: relative;
     overflow: hidden;

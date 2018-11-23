@@ -26,7 +26,7 @@ const wxShare = {
   title: 'test',
   desc: 'only test',
   link: 'yichenk.com',
-  imgUrl: 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg'
+  imgUrl: 'http://cdn.yichenk.com/default-blog-img-1.jpg'
 };
 if (false) {
   axios({

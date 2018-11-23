@@ -36,10 +36,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       uglifyOptions: {
         compress: {
           warnings: false
-        }
+        },
+        minimize:true
       },
       sourceMap: config.build.productionSourceMap,
-      parallel: true
+      parallel: true,
     }),
     // extract css into its own file
     new ExtractTextPlugin({
@@ -54,8 +55,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: config.build.productionSourceMap
-        ? { safe: true, map: { inline: false } }
-        : { safe: true }
+        ? {safe: true, map: {inline: false}}
+        : {safe: true}
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
@@ -81,7 +82,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks (module) {
+      minChunks(module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -115,7 +116,10 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    // new webpack.LoaderOptionsPlugin({
+    //   minimize: true
+    // })
   ]
 })
 

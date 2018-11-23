@@ -35,7 +35,7 @@
         return '更新日期 : ' + (new Date(this.blog.updated||'')).Format('yyyy-MM-dd hh:mm:ss')
       },
       imgUrl() {
-        const defaultUrl = 'http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg';
+        const defaultUrl = 'http://cdn.yichenk.com/default-blog-img-1.jpg';
         return this.blog.createTime.image || defaultUrl
       },
       labels(){

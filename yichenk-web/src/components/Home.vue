@@ -21,7 +21,7 @@
           </div>
         </transition>
       </div>
-      <img src="http://p9kmzrcfb.bkt.clouddn.com/default-blog-img-1.jpg" alt="">
+      <img src="http://cdn.yichenk.com/default-blog-img-1.jpg" alt="">
     </div>
     <transition name="isShowContent">
       <div class="content" v-if="isShowContent" :class="[isShowContent?'isShowContent':'']">
