@@ -154,7 +154,8 @@
   }
 
   .content {
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
     border-radius: 10px;
     box-sizing: border-box;
     text-align: left;

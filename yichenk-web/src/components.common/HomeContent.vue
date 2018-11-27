@@ -21,13 +21,14 @@
                               @before-enter="beforeEnter"
                               @enter="enter"
                               tag="div">
-              <div class="img"
+              <a class="img"
                    v-for="(path,index) in imgPathList"
                    :key="path"
                    :data-index="index"
+                 :href="path" target="_blank"
                    v-if="showImgList">
                 <img :src="path" alt="">
-              </div>
+              </a>
             </transition-group>
           </div>
         </div>
