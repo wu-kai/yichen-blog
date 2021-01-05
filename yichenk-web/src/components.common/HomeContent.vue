@@ -121,7 +121,7 @@
     font-size: 1.5em;
   }
   .world{
-    height: 500px;
+    /*height: 500px;*/
   }
   .map{
     /*width: 80%;*/

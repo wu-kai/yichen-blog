@@ -30,6 +30,11 @@
         </div>
       </div>
     </transition>
+    <div id="put">
+      <a target="_blank" :style="{color: isShowContent? '#636161':'#f1e9eb'}" href="https://beian.miit.gov.cn">
+        © 2019 一尘 版权所有 蜀ICP备16011858号-1
+      </a>
+    </div>
   </div>
 </template>
 <script>
@@ -261,5 +266,17 @@
     .home .content{
       width: 100%;
     }
+  }
+
+  #put{
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    bottom: 20px;
+    width: 100%;
+    padding-right: 15px;
+    z-index: 997;
   }
 </style>

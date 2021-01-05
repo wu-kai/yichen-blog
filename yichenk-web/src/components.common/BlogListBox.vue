@@ -11,7 +11,7 @@
                     v-if="showList"
                     :blog="blog"
                     :data-index="index"
-                    :key="index">
+                    :key="index + 1">
           </BlogItem>
         </transition-group>
     </div>
