@@ -1,5 +1,5 @@
 {
-  "script":"blog.app.js",
+  "script":"./blog.app.js",
   "env": {
     "NODE_ENV": "production"
   }
