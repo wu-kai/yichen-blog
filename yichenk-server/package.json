@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "async": "^2.6.1",
-    "mongoose": "~4.4.20",
+    "mongoose": "~5.7.5",
     "multiparty": "^4.1.4",
     "node-cache": "^4.2.0",
     "qiniu": "^7.2.1",
