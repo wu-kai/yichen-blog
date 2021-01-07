@@ -1,7 +1,7 @@
 const qiniu = require('qiniu');
 const NodeCache = require('node-cache');
 const waterfall = require('async/waterfall');
-const qiniu_cache = new NodeCache({stdTTL: 36000000, checkperiod: 36000000}); //1小时后过期
+const qiniu_cache = new NodeCache({stdTTL: 0, checkperiod: 0}); //1小时后过期
 
 qiniu.conf.ACCESS_KEY = 'l1ftFn7t45fApxXFy-AFLg_1bKkc3CXprJcAMi_m';
 qiniu.conf.SECRET_KEY = 'VKsnfsRU0mVKzscAvEXTsxpp40bappIMMxb_k-9h';
