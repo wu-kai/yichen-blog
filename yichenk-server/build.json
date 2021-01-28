@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "blog",
+      "script": "./blog.app.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "test",
+      "script": "./test.app.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

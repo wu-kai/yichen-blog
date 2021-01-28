@@ -1,6 +1,0 @@
-{
-  "script":"./blog.app.js",
-  "env": {
-    "NODE_ENV": "production"
-  }
-}
