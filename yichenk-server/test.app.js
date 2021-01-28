@@ -110,7 +110,7 @@ app.post('/api/uploadFile_to_qiniu', multipartMiddleware, (req, res) => {
 
 app.all('/', function (req, res) {
   if (isPro) {
-    res.sendFile(__dirname + '/dist/index.html2')
+    res.sendFile(__dirname + '/dist/index2.html')
   } else {
     res.send('开发环境请启动yichenk-web');
   }
