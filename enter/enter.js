@@ -10,7 +10,7 @@ const www = {
 };
 const test = {
 	requestUrl: 'http://test.yichenk.com',
-	outUrl: 'http://www.yichenk.com:8000'
+	outUrl: 'http://www.yichenk.com:3000'
 };
 const admin = {
 	requestUrl: 'http://admin.yichenk.com',

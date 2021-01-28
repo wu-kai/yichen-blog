@@ -110,6 +110,10 @@ app.post('/api/uploadFile_to_qiniu', multipartMiddleware, (req, res) => {
 
 app.all('/', function (req, res) {
   if (isPro) {
+    let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    if (fullUrl.indexOf('test.yichenk.com') === 0) {
+      res.sendFile(__dirname + '/dist/index.html2')
+    }
     res.sendFile(__dirname + '/dist/index.html')
   } else {
     res.send('开发环境请启动yichenk-web');
